@@ -3,24 +3,49 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { useTheme } from '../contexts/ThemeContext';
 
+const LightSwitchButton = styled.button`
+    background-color: ${props => props.theme === 'dark' ? '#000' : '#FFF'};
+    color: ${props => props.theme === 'dark' ? '#FFF' : '#000'};
+    border: none;
+    border-radius: 20px;
+    padding: 8px 16px;
+    cursor: pointer;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+
+    &:hover {
+        background-color: ${props => props.theme === 'dark' ? '#333' : '#EEE'};
+    }
+
+    &:active {
+        transform: translateY(1px);
+    }
+`;
+
 const StyledHeader = styled.header`
     display: flex;
     justify-content: space-between;
+    align-items: center;  // for vertical alignment
     padding: 1rem;
 `;
 
 const Navigation = styled.nav`
     & a {
         margin: 0 1rem;
+        text-decoration: none;  // to remove default link styles
+        color: inherit;         // use inherited color (from parent elements)
+        &:hover {
+            text-decoration: underline; // underline when hovered
+        }
     }
 `;
 
 function Header() {
     const { theme, toggleTheme } = useTheme();
-    
+
     return (
         <StyledHeader>
-            <div>Logo</div>
+            <div>Sam Jones</div>
             <Navigation>
                 <Link to="/">Home</Link>
                 <Link to="/about">About Me</Link>
@@ -28,9 +53,9 @@ function Header() {
                 <Link to="/resume">Resume</Link>
                 <Link to="/blog">Blog</Link>
             </Navigation>
-            <button onClick={toggleTheme}>
-                {theme === 'light' ? 'Switch to Dark Mode' : 'Switch to Light Mode'}
-            </button>
+            <LightSwitchButton theme={theme} onClick={toggleTheme}>
+                {theme === 'light' ? 'Dark Mode' : 'Light Mode'}
+            </LightSwitchButton>
         </StyledHeader>
     );
 }
