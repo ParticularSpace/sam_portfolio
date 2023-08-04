@@ -4,10 +4,11 @@ import { Scene, PerspectiveCamera, TextureLoader, BufferGeometry, PointsMaterial
 import styled from 'styled-components';
 import { useSpring, animated } from 'react-spring';
 import { useTheme } from '../contexts/ThemeContext';
-
 import { Button } from '@mui/material';
 import { ArrowBackIos, ArrowForwardIos } from '@mui/icons-material';
-
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from 'react-slick';
 
 const HomePageWrapper = styled.div`
     height: 100%; /* Span the entire height of the viewport */
@@ -24,51 +25,48 @@ const HomePageWrapper = styled.div`
     color: ${props => props.theme === 'dark' ? '#fff' : '#000'};
 `;
 
-
 const ProjectsSection = styled.div`
     width: 100%;
     padding: 50px 0; /* Example padding, adjust as needed */
     background-color: 0.3; /* Light grey background for contrast, adjust as needed */
 `;
 
-const ProjectCarouselWrapper = styled.div`
-    display: flex;
-    overflow: hidden;
-    scroll-snap-type: x mandatory;
-
-    &::-webkit-scrollbar {
-        display: none; /* Hide scrollbar */
-    }
-`;
-
-const ProjectCarouselInner = styled.div`
-    display: flex;
-    transition: all 0.5s;
-    transform: translateX(${props => props.translation}px); 
+const SliderWrapper = styled.div`
+    max-width: 1200px;  /* This defines the maximum width of your carousel */
+    width: 100%;
+    padding: 0 20px;
+    margin: 0 auto;  /* This will center your carousel if its width is less than its container's width */
 `;
 
 
 const ProjectCard = styled.div`
     flex: 0 0 auto;
-    width: 300px; /* Width of individual project card */
-    height: 200px;
-    margin: 10px;
-    background-color: #e0e0e0; /* Light gray background for placeholder */
+    width: 300px;  
+    height: 250px; 
+    margin: 20px;  
+    background-color: #e0e0e0; 
     scroll-snap-align: start;
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 8px;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
 `;
-
-
 
 
 const CarouselContainer = styled.div`
     display: flex;
-    align-items: center; 
-    justify-content: center; 
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    overflow: hidden;
+    padding: 10px 40px; 
+`;
+
+const ArrowButton = styled(Button)`
+    margin: 0 10px;
+    min-width: auto; 
 `;
 
 
@@ -76,33 +74,48 @@ function Home() {
     const containerRef = useRef(null);
     const { theme, toggleTheme } = useTheme();
     const [pastWelcome, setPastWelcome] = useState(false);
+    const sliderRef = useRef(null);
 
-    const PROJECT_WIDTH = 320;  // Width of individual project card + margin
-    const TOTAL_PROJECTS = 7;  // Now you have 6 projects including clones
 
-    const [carouselTranslation, setCarouselTranslation] = useState(-PROJECT_WIDTH);
+    const projects = [
+        'Project 1',
+        'Project 2',
+        'Project 3',
+        'Project 4',
+        'Project 5',
+        'Project 6',
+        'Project 7',
+        'Project 8',
+        'Project 9',
+        'Project 10',
+    ];
 
-    const slideCarouselLeft = () => {
-        if (carouselTranslation === 0) { 
-            setTimeout(() => {
-                setCarouselTranslation(-PROJECT_WIDTH * 4);
-            }, 50);
-            return;
-        }
-        setCarouselTranslation(carouselTranslation + PROJECT_WIDTH);
+    const settings = {
+        infinite: true,
+        slidesToShow: 3,  // Reduced from 4 to 3 for larger screens
+        slidesToScroll: 1,  
+        arrows: false,
+        centerMode: true,  
+        centerPadding: '20px',  // Increased padding for a bit more space between slides
+        responsive: [
+            {
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 2,  // Show 2 slides for medium-sized screens
+                    slidesToScroll: 1,
+                },
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 1,  // Show 1 slide for small screens
+                    slidesToScroll: 1,
+                },
+            },
+        ],
     };
     
-    const slideCarouselRight = () => {
-        if (carouselTranslation === -PROJECT_WIDTH * 5) { 
-            setTimeout(() => {
-                setCarouselTranslation(-PROJECT_WIDTH);
-            }, 50);
-            return;
-        }
-        setCarouselTranslation(carouselTranslation - PROJECT_WIDTH);
-    };
     
-
 
 
 
@@ -221,25 +234,22 @@ function Home() {
                 <ProjectsSection>
                     <h2>Projects</h2>
                     <CarouselContainer>
-                        <Button variant="outlined" onClick={slideCarouselLeft}>
+                        <ArrowButton variant="outlined" onClick={() => sliderRef.current.slickPrev()}>
                             <ArrowBackIos />
-                        </Button>
-                        <ProjectCarouselWrapper>
-                            <ProjectCarouselInner translation={carouselTranslation}>
-                                <ProjectCard>Project 4 (Clone)</ProjectCard>  {/* Last project clone */}
-                                <ProjectCard>Project 1</ProjectCard>
-                                <ProjectCard>Project 2</ProjectCard>
-                                <ProjectCard>Project 3</ProjectCard>
-                                <ProjectCard>Project 4</ProjectCard>
-                                <ProjectCard>Project 1 (Clone)</ProjectCard>  {/* First project clone */}
-                            </ProjectCarouselInner>
-
-                        </ProjectCarouselWrapper>
-                        <Button variant="outlined" onClick={slideCarouselRight}>
+                        </ArrowButton>
+                        <SliderWrapper>
+                            <Slider ref={sliderRef} {...settings}>
+                                {projects.map((project) => (
+                                    <ProjectCard key={project}>
+                                        {project}
+                                    </ProjectCard>
+                                ))}
+                            </Slider>
+                        </SliderWrapper>
+                        <ArrowButton variant="outlined" onClick={() => sliderRef.current.slickNext()}>
                             <ArrowForwardIos />
-                        </Button>
+                        </ArrowButton>
                     </CarouselContainer>
-
                 </ProjectsSection>
             </div>
         </>
