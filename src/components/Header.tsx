@@ -4,8 +4,7 @@ import styled from 'styled-components';
 import { useTheme } from '../contexts/ThemeContext';
 
 const LightSwitchButton = styled.button`
-    background-color: ${props => props.theme === 'dark' ? '#000' : '#FFF'};
-    color: ${props => props.theme === 'dark' ? '#FFF' : '#000'};
+   
     border: none;
     border-radius: 20px;
     padding: 8px 16px;
@@ -13,9 +12,7 @@ const LightSwitchButton = styled.button`
     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
     transition: background-color 0.3s ease;
 
-    &:hover {
-        background-color: ${props => props.theme === 'dark' ? '#333' : '#EEE'};
-    }
+   
 
     &:active {
         transform: translateY(1px);
@@ -41,7 +38,6 @@ const Navigation = styled.nav`
 `;
 
 function Header() {
-    const { theme, toggleTheme } = useTheme();
 
     return (
         <StyledHeader>
@@ -53,9 +49,9 @@ function Header() {
                 <Link to="/resume">Resume</Link>
                 <Link to="/blog">Blog</Link>
             </Navigation>
-            <LightSwitchButton theme={theme} onClick={toggleTheme}>
+            {/* <LightSwitchButton theme={theme} onClick={toggleTheme}>
                 {theme === 'light' ? 'Dark Mode' : 'Light Mode'}
-            </LightSwitchButton>
+            </LightSwitchButton> */}
         </StyledHeader>
     );
 }
