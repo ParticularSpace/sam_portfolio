@@ -14,76 +14,24 @@ import {
   WebGLRenderer,
   AdditiveBlending,
 } from "three";
-import styled from "styled-components";
+
 import { useSpring, animated } from "react-spring";
-import { useTheme } from "../contexts/ThemeContext";
-import { Button } from "@mui/material";
+
 import { ArrowBackIos, ArrowForwardIos } from "@mui/icons-material";
 import Slider from "react-slick";
+
+import {
+  HomePageWrapper,
+  ProjectsSection,
+  SliderWrapper,
+  ProjectCard,
+  CarouselContainer,
+  ArrowButton,
+} from "../styles/Home.styles";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-type StyledProps = {
-  theme: string;
-};
-
-const HomePageWrapper = styled.div<StyledProps>`
-  height: 100%; /* Span the entire height of the viewport */
-  width: 100%; /* Span the entire width of the viewport */
-  position: fixed; /* Fixed positioning */
-  top: 0;
-  left: 0;
-  display: flex;
-  align-items: center; /* Center vertically */
-  justify-content: center; /* Center horizontally */
-  overflow: hidden;
-  z-index: -1; /* Sit behind other content */
-  background-color: ${(props) => (props.theme === "dark" ? "#000" : "#fff")};
-  color: ${(props) => (props.theme === "dark" ? "#fff" : "#000")};
-`;
-
-const ProjectsSection = styled.div`
-  width: 100%;
-  padding: 50px 0; /* Example padding, adjust as needed */
-  background-color: 0.3; /* Light grey background for contrast, adjust as needed */
-`;
-
-const SliderWrapper = styled.div`
-  max-width: 1200px; /* This defines the maximum width of your carousel */
-  width: 100%;
-  padding: 0 20px;
-  margin: 0 auto; /* This will center your carousel if its width is less than its container's width */
-`;
-
-const ProjectCard = styled.div`
-  flex: 0 0 auto;
-  width: 300px;
-  height: 250px;
-  margin: 20px;
-  background-color: #e0e0e0;
-  scroll-snap-align: start;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  box-sizing: border-box;
-`;
-
-const CarouselContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  overflow: hidden;
-  padding: 10px 40px;
-`;
-
-const ArrowButton = styled(Button)`
-  margin: 0 10px;
-  min-width: auto;
-`;
 
 type Project = string;
 
@@ -111,7 +59,7 @@ function Home() {
     slidesToScroll: 1,
     arrows: false,
     centerMode: true,
-    centerPadding: "20px", // Increased padding for a bit more space between slides
+    centerPadding: "10px", // Increased padding for a bit more space between slides
     responsive: [
       {
         breakpoint: 1024,
@@ -198,7 +146,10 @@ function Home() {
     const renderer = new WebGLRenderer({ alpha: true, antialias: true });
     renderer.setClearColor(0x00000, 0);
     renderer.setSize(window.innerWidth, window.innerHeight);
-    // containerRef.current.appendChild(renderer.domElement);
+    if (containerRef.current) {
+      containerRef.current.appendChild(renderer.domElement);
+    }
+    
 
     const handleScroll = () => {
       const scrollFactor = window.scrollY / window.innerHeight;
