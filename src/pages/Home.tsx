@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+
 import {
   Scene,
   PerspectiveCamera,
@@ -17,66 +18,60 @@ import {
 
 import { useSpring, animated } from "react-spring";
 
-import { ArrowBackIos, ArrowForwardIos } from "@mui/icons-material";
-import Slider from "react-slick";
+import ProjectsCarousel from '../components/ProjectsCarousel';
 
 import {
-  HomePageWrapper,
-  ProjectsSection,
-  SliderWrapper,
-  ProjectCard,
-  CarouselContainer,
-  ArrowButton,
+  HomePageWrapper
 } from "../styles/Home.styles";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
+type Project = {
+  id: string;
+  title: string;
+  description: string;
+  imageUrl: string;
+};
 
-type Project = string;
 
 function Home() {
   const containerRef = useRef<HTMLDivElement | null>(null); // Type ref for an HTMLDivElement
   const [pastWelcome, setPastWelcome] = useState<boolean>(false);
-  const sliderRef = useRef<any>(null); // Ref type for slider can be better defined if we have its type. Here, I'm using 'any' as a placeholder.
 
   const projects: Project[] = [
-    "Project 1",
-    "Project 2",
-    "Project 3",
-    "Project 4",
-    "Project 5",
-    "Project 6",
-    "Project 7",
-    "Project 8",
-    "Project 9",
-    "Project 10",
+    {
+      id: "1",
+      title: "Project 1",
+      description: "Description for project 1",
+      imageUrl: "https://via.placeholder.com/300x250"
+    },
+    {
+      id: "2",
+      title: "Project 2",
+      description: "Description for project 2",
+      imageUrl: "https://via.placeholder.com/300x250"
+    },
+    {
+      id: "3",
+      title: "Project 3",
+      description: "Description for project 3",
+      imageUrl: "https://via.placeholder.com/300x250"
+    },
+    {
+      id: "4",
+      title: "Project 4",
+      description: "Description for project 4",
+      imageUrl: "https://via.placeholder.com/300x250"
+    },
+    {
+      id: "5",
+      title: "Project 5",
+      description: "Description for project 5",
+      imageUrl: "https://via.placeholder.com/300x250"
+    },
   ];
-
-  const settings = {
-    infinite: true,
-    slidesToShow: 3, // Reduced from 4 to 3 for larger screens
-    slidesToScroll: 1,
-    arrows: false,
-    centerMode: true,
-    centerPadding: "10px", // Increased padding for a bit more space between slides
-    responsive: [
-      {
-        breakpoint: 1024,
-        settings: {
-          slidesToShow: 2, // Show 2 slides for medium-sized screens
-          slidesToScroll: 1,
-        },
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          slidesToShow: 1, // Show 1 slide for small screens
-          slidesToScroll: 1,
-        },
-      },
-    ],
-  };
+  
 
   const fadeIn = useSpring({
     from: { opacity: 0 },
@@ -153,7 +148,6 @@ function Home() {
 
     const handleScroll = () => {
       const scrollFactor = window.scrollY / window.innerHeight;
-
       // Simulate stars being sucked into black hole
       stars.position.z = scrollFactor * -300;
 
@@ -233,32 +227,10 @@ function Home() {
       </HomePageWrapper>
 
       <div style={{ paddingTop: "100vh" }}>
-        <ProjectsSection>
-          <h2>Projects</h2>
-          <CarouselContainer>
-            <ArrowButton
-              variant="outlined"
-              onClick={() => sliderRef.current.slickPrev()}
-            >
-              <ArrowBackIos />
-            </ArrowButton>
-            <SliderWrapper>
-              <Slider ref={sliderRef} {...settings}>
-                {projects.map((project) => (
-                  <ProjectCard key={project}>{project}</ProjectCard>
-                ))}
-              </Slider>
-            </SliderWrapper>
-            <ArrowButton
-              variant="outlined"
-              onClick={() => sliderRef.current.slickNext()}
-            >
-              <ArrowForwardIos />
-            </ArrowButton>
-          </CarouselContainer>
-        </ProjectsSection>
+      <ProjectsCarousel projects={projects} />
       </div>
     </>
+
   );
 }
 

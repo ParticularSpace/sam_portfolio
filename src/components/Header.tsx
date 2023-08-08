@@ -1,23 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import { useTheme } from '../contexts/ThemeContext';
 
-const LightSwitchButton = styled.button`
-   
-    border: none;
-    border-radius: 20px;
-    padding: 8px 16px;
-    cursor: pointer;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-    transition: background-color 0.3s ease;
-
-   
-
-    &:active {
-        transform: translateY(1px);
-    }
-`;
 
 const StyledHeader = styled.header`
     display: flex;
@@ -49,9 +33,6 @@ function Header() {
                 <Link to="/resume">Resume</Link>
                 <Link to="/blog">Blog</Link>
             </Navigation>
-            {/* <LightSwitchButton theme={theme} onClick={toggleTheme}>
-                {theme === 'light' ? 'Dark Mode' : 'Light Mode'}
-            </LightSwitchButton> */}
         </StyledHeader>
     );
 }
