@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { throttle } from 'lodash';
 
 import {
   Scene,
@@ -19,6 +20,9 @@ import {
 import { useSpring, animated } from "react-spring";
 
 import ProjectsCarousel from '../components/ProjectsCarousel';
+
+import AboutMe from '../components/AboutMe'; 
+
 
 import {
   HomePageWrapper
@@ -117,27 +121,7 @@ function Home() {
     const stars = new Points(starsGeometry, starsMaterial);
     scene.add(stars);
 
-    const earthMaterial = new MeshBasicMaterial({
-      map: loader.load("textures/eath.jpg"),
-    });
-    const earth = new Mesh(new SphereGeometry(50, 32, 32), earthMaterial);
-    scene.add(earth);
-
-    const marsMaterial = new MeshBasicMaterial({
-      map: loader.load("textures/mars.jpg"),
-    });
-    const mars = new Mesh(new SphereGeometry(30, 32, 32), marsMaterial);
-    scene.add(mars);
-
-    const blackHoleMaterial = new MeshBasicMaterial({
-      map: loader.load("textures/blackhom.jpg"),
-      transparent: true,
-      opacity: 0.8,
-    });
-    const blackHole = new Mesh(new CircleGeometry(100, 64), blackHoleMaterial);
-    blackHole.position.set(-500, 0, -500);
-    scene.add(blackHole);
-
+    
     const renderer = new WebGLRenderer({ alpha: true, antialias: true });
     renderer.setClearColor(0x00000, 0);
     renderer.setSize(window.innerWidth, window.innerHeight);
@@ -146,17 +130,12 @@ function Home() {
     }
     
 
-    const handleScroll = () => {
+    const handleScroll = throttle(() => {
       const scrollFactor = window.scrollY / window.innerHeight;
-      // Simulate stars being sucked into black hole
-      stars.position.z = scrollFactor * -300;
-
-      // Move the black hole further in the scene based on scroll position
-      blackHole.position.z = 100 - scrollFactor * 100;
-      blackHole.position.y = -100 + scrollFactor * 100;
-
       setPastWelcome(window.scrollY > window.innerHeight / 2);
-    };
+  }, 50);
+  
+  
 
     const handleResize = () => {
       camera.aspect = window.innerWidth / window.innerHeight;
@@ -165,20 +144,19 @@ function Home() {
     };
 
     const onDocumentMouseMove = (event: MouseEvent) => {
-        mouseX = pastWelcome
-          ? window.innerWidth / 2
-          : event.clientX - window.innerWidth / 2;
-        mouseY = pastWelcome
-          ? window.innerHeight / 2
-          : event.clientY - window.innerHeight / 2;
-      };
+      if (pastWelcome) {
+          mouseX = window.innerWidth / 2;
+          mouseY = window.innerHeight / 2;
+      } else {
+          mouseX = event.clientX - window.innerWidth / 2;
+          mouseY = event.clientY - window.innerHeight / 2;
+      }
+  };
+  
       
 
     const animate = () => {
       requestAnimationFrame(animate);
-
-      earth.rotation.y += 0.005;
-      mars.rotation.y += 0.005;
 
       if (pastWelcome) {
         stars.position.x += (mouseX - stars.position.x) * 0.01;
@@ -212,6 +190,7 @@ function Home() {
 
   return (
     <>
+    <h1>Welcome to Sam Jones' Portfolio</h1>
       <HomePageWrapper ref={containerRef}>
         <animated.div
           style={{
@@ -222,12 +201,15 @@ function Home() {
             transform: "translate(-50%, -50%)",
           }}
         >
-          <h1>Welcome to Sam Jones' Portfolio</h1>
         </animated.div>
       </HomePageWrapper>
 
-      <div style={{ paddingTop: "100vh" }}>
+      <div style={{ paddingTop: "50vh" }}>
       <ProjectsCarousel projects={projects} />
+      </div>
+
+      <div style={{ paddingTop: "50vh" }}>
+      <AboutMe />
       </div>
     </>
 

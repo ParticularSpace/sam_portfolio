@@ -20,7 +20,7 @@ export const HomePageWrapper = styled.div<StyledProps>`
 
 export const ProjectsSection = styled.div`
 width: 100%;
-padding: 50px 0; 
+padding: 20px 0; 
 background-color: 0.3; 
 `;
 
