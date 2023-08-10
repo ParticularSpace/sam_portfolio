@@ -7,15 +7,12 @@ type StyledProps = {
 export const HomePageWrapper = styled.div<StyledProps>`
   height: 100%; 
   width: 100%; 
-  position: fixed; 
-  top: 0;
-  left: 0;
-  right: 0;
   display: flex;
   align-items: center; 
   justify-content: center; 
   overflow: hidden;
   z-index: -1; 
+  background-color: white;
 `;
 
 export const ProjectsSection = styled.div`
@@ -60,20 +57,6 @@ padding: 0;
 margin: 0;
 `;
 
-export const WelcomeMessage = styled.div`
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 40px;
-  font-weight: 400;
-  color: #000;
-  text-align: center;
-  padding: 0 10px;
-  margin: 0 10px;
-  border-radius: 10px;
-  margin: 150px 0;
-`;
+
 
 
