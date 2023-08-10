@@ -1,7 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&family=Rubik&display=swap');
+
 body{
     margin: 0;
     padding: 0;
-    font-family: sans-serif;
+    font-family: 'Rubik', sans-serif;
     background: #61809f;
     background-size: cover;
     background-position: center;

@@ -199,9 +199,10 @@ function Home() {
                 variant="contained" 
                 color="inherit"
                 style={{
-                  width: "20rem",
+                  width: "30rem",
                   height: "5rem",
-                  margin: "3px",
+                  margin: "5px",
+                  fontSize: "1.5rem",
                 }}
               >
                 Home
@@ -212,9 +213,10 @@ function Home() {
                 variant="contained"
                 color="inherit"
                 style={{
-                  width: "20rem",
+                  width: "30rem",
                   height: "5rem",
-                  margin: "3px",
+                  margin: "5px",
+                  fontSize: "1.5rem",
                 }}
               >
                 Projects
@@ -227,9 +229,10 @@ function Home() {
                 variant="contained"
                 color="inherit"
                 style={{
-                  width: "20rem",
+                  width: "30rem",
                   height: "5rem",
-                  margin: "3px",
+                  margin: "5px",
+                  fontSize: "1.5rem",
                 }}
               >
                 About Me
@@ -240,9 +243,10 @@ function Home() {
                 variant="contained"
                 color="inherit"
                 style={{
-                  width: "20rem",
+                  width: "30rem",
                   height: "5rem",
-                  margin: "3px",
+                  margin: "5px",
+                  fontSize: "1.5rem",
                   
                 }}
               >
