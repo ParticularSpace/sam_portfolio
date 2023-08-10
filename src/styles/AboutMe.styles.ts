@@ -3,8 +3,7 @@ import styled from 'styled-components';
 export const AboutMeWrapper = styled.div`
   width: 100vw; 
   height: 50vh; 
-  padding: 5px 5px;
-  background-color: #e0e0e0; 
+  padding: 5px 5px; 
   box-sizing: border-box;
   position: relative;
   display: flex;
@@ -23,7 +22,7 @@ export const AnimatedFigureWrapper = styled.div`
   height: 300px;
   background-color: rgba(0,0,0,0.1);
   border: 2px solid black;
-  margin: 20px; // Provides spacing around the element
+  margin: 20px; 
 `;
 
 export const LinkedInButton = styled.a`
@@ -42,8 +41,9 @@ export const LinkedInButton = styled.a`
 export const LinkedInPostsWrapper = styled.div`
     width: 80%; 
     height: 400px; 
-    background-color: white; 
+    background-color: grey; 
     margin-top: 20px; 
+    margin-right: 30px;
     border: 1px solid #ddd;
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); 
     overflow-y: auto; 

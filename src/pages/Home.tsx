@@ -9,10 +9,6 @@ import {
   PointsMaterial,
   Float32BufferAttribute,
   Points,
-  MeshBasicMaterial,
-  SphereGeometry,
-  Mesh,
-  CircleGeometry,
   WebGLRenderer,
   AdditiveBlending,
 } from "three";
@@ -25,7 +21,8 @@ import AboutMe from '../components/AboutMe';
 
 
 import {
-  HomePageWrapper
+  HomePageWrapper,
+  WelcomeMessage
 } from "../styles/Home.styles";
 
 import "slick-carousel/slick/slick.css";
@@ -131,7 +128,6 @@ function Home() {
     
 
     const handleScroll = throttle(() => {
-      const scrollFactor = window.scrollY / window.innerHeight;
       setPastWelcome(window.scrollY > window.innerHeight / 2);
   }, 50);
   
@@ -190,7 +186,9 @@ function Home() {
 
   return (
     <>
+    <WelcomeMessage>
     <h1>Welcome to Sam Jones' Portfolio</h1>
+    </WelcomeMessage>
       <HomePageWrapper ref={containerRef}>
         <animated.div
           style={{
@@ -204,11 +202,11 @@ function Home() {
         </animated.div>
       </HomePageWrapper>
 
-      <div style={{ paddingTop: "50vh" }}>
+      <div style={{ paddingTop: "33vh" }}>
       <ProjectsCarousel projects={projects} />
       </div>
 
-      <div style={{ paddingTop: "50vh" }}>
+      <div style={{ paddingTop: "33vh" }}>
       <AboutMe />
       </div>
     </>
