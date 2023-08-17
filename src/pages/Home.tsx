@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-
+import ProjectGrid from "../components/ProjectGrid";
 import {
   Scene,
   PerspectiveCamera,
@@ -185,7 +185,6 @@ function Home() {
         <Grid
           container
           direction="column"
-          
           style={{
             position: "absolute",
             top: "60%",
@@ -196,7 +195,7 @@ function Home() {
           <Grid container spacing={4} justifyContent="center">
             <Grid item>
               <Button
-                variant="contained" 
+                variant="contained"
                 color="inherit"
                 style={{
                   width: "30rem",
@@ -223,7 +222,7 @@ function Home() {
               </Button>
             </Grid>
           </Grid>
-          <Grid container spacing={4} justifyContent="center">
+          <Grid container spacing={3} justifyContent="center">
             <Grid item>
               <Button
                 variant="contained"
@@ -247,7 +246,6 @@ function Home() {
                   height: "5rem",
                   margin: "5px",
                   fontSize: "1.5rem",
-                  
                 }}
               >
                 Contact
@@ -256,15 +254,18 @@ function Home() {
           </Grid>
         </Grid>
       </HomePageWrapper>
-      
-      <div style={{ paddingTop: "33vh" }}>
-        <ProjectsCarousel projects={projects} />
+
+      <div >
+        <ProjectGrid projects={projects} />
       </div>
+
+      {/* <div style={{ paddingTop: "33vh" }}>
+        <ProjectsCarousel projects={projects} />
+      </div> */}
 
       <div style={{ paddingTop: "33vh" }}>
         <AboutMe />
       </div>
-
     </>
   );
 }

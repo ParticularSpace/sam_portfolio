@@ -15,36 +15,58 @@ export const HomePageWrapper = styled.div<StyledProps>`
   background-color: white;
 `;
 
+
 export const ProjectsSection = styled.div`
-width: 100%;
-padding: 20px 0; 
-background-color: 0.3; 
+  width: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+`;
+
+export const ShowcaseProjectCard = styled.div`
+  width: 100%;
+  height: 400px;
+  background-color: #e0e0e0;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 5px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.05);
+  }
+`;
+
+export const ProjectCard = styled.div`
+  width: 100%;
+  height: 250px;
+  background-color: #e0e0e0;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.02);
+  }
 `;
 
 export const SliderWrapper = styled.div`
 max-width: 70%;
 padding: 0 10px;
 margin: 10%; 
-`;
-
-export const ProjectCard = styled.div`
-  width: 100%;
-  height: 250px;
-  margin: 20px 10px;
-  background-color: #e0e0e0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 10px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  box-sizing: border-box;
-  margin: 20px 20px;
-
-  &:hover {
-    cursor: pointer;
-    transform: scale(1.02);
-    transition: all 0.3s ease-in-out;
-  }
 `;
 
 export const CarouselContainer = styled.div`

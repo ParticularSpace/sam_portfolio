@@ -7,4 +7,5 @@ body{
     background: #61809f;
     background-size: cover;
     background-position: center;
+    overflow-x: hidden;
 }
