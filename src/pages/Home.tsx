@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import ProjectGrid from "../components/ProjectGrid";
+import ContactMe from "../components/ContactMe";
 import {
   Scene,
   PerspectiveCamera,
@@ -257,6 +258,10 @@ function Home() {
 
       <div >
         <ProjectGrid projects={projects} />
+      </div>
+
+      <div style={{ paddingTop: "10vh" }}>
+        <ContactMe />
       </div>
 
       {/* <div style={{ paddingTop: "33vh" }}>
