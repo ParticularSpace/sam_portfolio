@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 import ProjectGrid from "../components/ProjectGrid";
 import ContactMe from "../components/ContactMe";
 import {
@@ -222,6 +223,8 @@ function Home() {
                   margin: "5px",
                   fontSize: "1.5rem",
                 }}
+                component={Link}
+                to="/projects"
               >
                 Projects
               </Button>
