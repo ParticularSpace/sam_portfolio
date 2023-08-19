@@ -1,6 +1,6 @@
-import React from 'react';
-import { Typography, Grid, Avatar } from '@mui/material';
-import { AboutSection } from '../styles/AboutMe.styles';
+import React from "react";
+import { Typography, Grid, Avatar } from "@mui/material";
+import { AboutSection } from "../styles/AboutMe.styles";
 
 const AboutMe: React.FC = () => {
   return (
@@ -10,16 +10,22 @@ const AboutMe: React.FC = () => {
           <Avatar
             alt="Your Name"
             src="../images/profilepic.jpeg"
-            style={{ width: '150px', height: '150px' }}
+            style={{ width: "150px", height: "150px" }}
           />
         </Grid>
         <Grid item xs={12} sm={8} md={9}>
           <Typography variant="body1">
-            Hello! I'm Sam Jones, a full-stack developer based in Seattle, WA.
+            Hello! My name is Sam Jones a graduate of the UC Berkeley Coding Bootcamp, and I am a full-stack developer based in Seattle, WA. 
           </Typography>
           <Typography variant="body1">
-            I specialize in React, Node.js, and other modern web technologies. Feel free to browse my projects and
-            contact me if you have any questions or opportunities.
+            Driven by curiosity and a passion for problem-solving, my projects
+            range from innovative personal experiments to robust professional
+            solutions. Through continuous learning and collaboration, I strive
+            to develop code that not only functions seamlessly but also makes a
+            meaningful impact. Feel free to browse my portfolio to explore my
+            projects and discover my unique approach to coding. If you have any
+            questions, opportunities, or just want to chat about technology,
+            please don't hesitate to contact me.
           </Typography>
         </Grid>
       </Grid>
