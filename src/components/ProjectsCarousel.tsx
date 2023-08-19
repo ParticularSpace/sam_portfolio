@@ -50,9 +50,6 @@ const ProjectsCarousel: React.FC<ProjectsCarouselProps> = ({ projects }) => {
 
   return (
     <>
-      <Typography variant="h4" align="center">
-        More Projects
-      </Typography>
       <CarouselContainer>
         {/* left arrow */}
         <div

@@ -8,12 +8,13 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import Projects from './pages/Projects';
 import './App.css';
+import { ThemeProvider } from './styles/ThemeContext';
 
 
 
 function App() {
     return (
-        
+        <ThemeProvider>
             <Router>
                 <Routes>
                     <Route path="/" element={<Home />} />
@@ -21,7 +22,7 @@ function App() {
                 </Routes>
                 <Footer />
             </Router>
-       
+        </ThemeProvider>
     );
 }
 

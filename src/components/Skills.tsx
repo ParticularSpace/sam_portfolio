@@ -1,18 +1,9 @@
 import React from 'react';
+import { FaReact, FaHtml5, FaCss3, FaJs, FaNodeJs, FaPython } from 'react-icons/fa';
+import { SiTypescript, SiMongodb, SiMysql, SiHandlebarsdotjs, SiJquery } from 'react-icons/si';
 import { useSpring, animated } from 'react-spring';
 import { Typography, Grid, Accordion, AccordionSummary, AccordionDetails } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import {
-  FaReact,
-  FaHtml5,
-  FaCss3,
-  FaJs,
-  FaNodeJs,
-  FaSass,
-  FaAngular,
-  FaVuejs,
-} from 'react-icons/fa';
-import { SiTypescript, SiMongodb, SiMysql, SiPostgresql, SiGatsby, SiRedux } from 'react-icons/si';
 
 const SkillIcon: React.FC<{ icon: React.ReactNode; name: string }> = ({ icon, name }) => {
   const [scale, setScale] = useSpring(() => ({
@@ -57,54 +48,38 @@ const SkillsSection: React.FC<{ title: string; skills: { icon: React.ReactNode; 
 );
 
 const Skills: React.FC = () => {
-
-  const frontendSkills = [
-    { icon: <FaReact size={50} />, name: 'React' },
-    { icon: <FaAngular size={50} />, name: 'Angular' },
-    { icon: <FaVuejs size={50} />, name: 'Vue.js' },
-    { icon: <FaHtml5 size={50} />, name: 'HTML' },
-    { icon: <FaCss3 size={50} />, name: 'CSS' },
-    { icon: <FaSass size={50} />, name: 'Sass' },
-    { icon: <FaJs size={50} />, name: 'JavaScript' },
-    { icon: <SiTypescript size={50} />, name: 'TypeScript' },
-  ];
-
-  const backendSkills = [
-    { icon: <FaNodeJs size={50} />, name: 'Node.js' },
-    // Add more backend skills here
-  ];
-
-  const databaseSkills = [
-    { icon: <SiMongodb size={50} />, name: 'MongoDB' },
-    { icon: <SiMysql size={50} />, name: 'MySQL' },
-    { icon: <SiPostgresql size={50} />, name: 'PostgreSQL' },
-    // Add more database skills here
-  ];
-
-  const otherSkills = [
-    { icon: <SiGatsby size={50} />, name: 'Gatsby' },
-    { icon: <SiRedux size={50} />, name: 'Redux' },
-    // Add more other tools and skills here
-  ];
-
-  return (
-    <div style={{ padding: '2rem' }}>
-      <Typography variant="h4" align="center">
-        Skills
-      </Typography>
-      <SkillsSection title="Frontend" skills={frontendSkills} />
-      <SkillsSection title="Backend" skills={backendSkills} />
-      <SkillsSection title="Databases" skills={databaseSkills} />
-      <SkillsSection title="Other Tools & Libraries" skills={otherSkills} />
-    </div>
-  );
-};
-
-export default Skills;
-
-
-
-
-
-
-
+    const frontendSkills = [
+      { icon: <FaReact size={50} />, name: 'React' },
+      { icon: <FaHtml5 size={50} />, name: 'HTML' },
+      { icon: <FaCss3 size={50} />, name: 'CSS' },
+      { icon: <FaJs size={50} />, name: 'JavaScript' },
+      { icon: <SiTypescript size={50} />, name: 'TypeScript' },
+    ];
+  
+    const backendSkills = [
+      { icon: <FaNodeJs size={50} />, name: 'Node.js' },
+      { icon: <FaPython size={50} />, name: 'Python' },
+    ];
+  
+    const databaseSkills = [
+      { icon: <SiMongodb size={50} />, name: 'MongoDB' },
+      { icon: <SiMysql size={50} />, name: 'SQL' },
+      { icon: <SiMysql size={50} />, name: 'NoSQL' },
+    ];
+  
+    const otherSkills = [
+      { icon: <SiHandlebarsdotjs size={50} />, name: 'Handlebars' },
+      { icon: <SiJquery size={50} />, name: 'jQuery' },
+    ];
+  
+    return (
+      <div style={{ padding: '2rem' }}>
+        <SkillsSection title="Frontend" skills={frontendSkills} />
+        <SkillsSection title="Backend" skills={backendSkills} />
+        <SkillsSection title="Databases" skills={databaseSkills} />
+        <SkillsSection title="Other Tools & Libraries" skills={otherSkills} />
+      </div>
+    );
+  };
+  
+  export default Skills;

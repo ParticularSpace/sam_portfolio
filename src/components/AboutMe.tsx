@@ -14,7 +14,6 @@ const AboutMe: React.FC = () => {
           />
         </Grid>
         <Grid item xs={12} sm={8} md={9}>
-          <Typography variant="h4">About Me</Typography>
           <Typography variant="body1">
             Hello! I'm Sam Jones, a full-stack developer based in Seattle, WA.
           </Typography>

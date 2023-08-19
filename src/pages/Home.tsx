@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import ProjectGrid from "../components/ProjectGrid";
 import ContactMe from "../components/ContactMe";
+import ThemeSwitcher from '../components/ThemeSwitcher';
 import {
   Scene,
   PerspectiveCamera,
@@ -14,13 +15,22 @@ import {
   AdditiveBlending,
 } from "three";
 import { useSpring, animated } from "react-spring";
-import { Button, Grid } from "@mui/material"; // Importing Button and Grid from Material-UI
+import {
+  Button,
+  Container,
+  Grid,
+  Typography,
+  Paper,
+  Divider,
+} from '@mui/material'; // Importing Button and Grid from Material-UI
 
 import ProjectsCarousel from "../components/ProjectsCarousel";
 
 import Skills from "../components/Skills";
 
 import AboutMe from "../components/AboutMe";
+
+import Socials from "../components/Socials";
 
 import { HomePageWrapper } from "../styles/Home.styles";
 
@@ -162,7 +172,9 @@ function Home() {
 
   return (
     <>
+    <ThemeSwitcher />
       <HomePageWrapper ref={containerRef}>
+      
         <animated.div
           style={{
             ...fadeIn,
@@ -171,6 +183,7 @@ function Home() {
             left: "50%",
             transform: "translate(-50%, -50%)",
             fontSize: "5rem",
+            
           }}
         >
           Sam Jones
@@ -261,26 +274,35 @@ function Home() {
             </Grid>
           </Grid>
         </Grid>
-      </HomePageWrapper>
+        </HomePageWrapper>
 
-      <div>
+        <div style={{ padding: '2rem' }}>
+        <Typography variant="h4" align="center" gutterBottom>
+          Projects
+        </Typography>
         <ProjectGrid projects={projects} />
-      </div>
-
-      <div>
         <ProjectsCarousel projects={projects} />
       </div>
 
-      <div style={{ paddingTop: "5vh" }}>
+      <div style={{ padding: '2rem' }}>
+        <Typography variant="h4" align="center" gutterBottom>
+          Skills
+        </Typography>
         <Skills />
       </div>
 
-      <div style={{ paddingTop: "5vh" }}>
+      <div style={{ padding: '2rem' }}>
+        <Typography variant="h4" align="center" gutterBottom>
+          About Me
+        </Typography>
         <AboutMe />
       </div>
 
-      <div style={{ paddingTop: "5vh" }}>
-        <ContactMe />
+      <div style={{ padding: '2rem' }}>
+        <Typography variant="h4" align="center" gutterBottom>
+          Socials
+        </Typography>
+        <Socials />
       </div>
     </>
   );
