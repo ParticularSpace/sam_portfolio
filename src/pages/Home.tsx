@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import ProjectGrid from "../components/ProjectGrid";
-import { useThemeContext } from '../styles/ThemeContext';
-import ThemeSwitcher from '../components/ThemeSwitcher';
+import { useThemeContext } from "../styles/ThemeContext";
+import ThemeSwitcher from "../components/ThemeSwitcher";
 import {
   Scene,
   PerspectiveCamera,
@@ -22,7 +22,7 @@ import {
   Typography,
   Paper,
   Divider,
-} from '@mui/material'; // Importing Button and Grid from Material-UI
+} from "@mui/material"; // Importing Button and Grid from Material-UI
 
 import ProjectsCarousel from "../components/ProjectsCarousel";
 
@@ -45,7 +45,6 @@ type Project = {
 };
 
 function Home() {
-
   const { isDarkMode } = useThemeContext();
   const containerRef = useRef<HTMLDivElement | null>(null); // Type ref for an HTMLDivElement
 
@@ -111,8 +110,7 @@ function Home() {
       blending: isDarkMode ? AdditiveBlending : undefined, // Set blending based on theme mode
       opacity: isDarkMode ? 1 : 0.5, // Set opacity based on theme mode
     });
-    
-  
+
     const vertices: number[] = [];
     for (let i = 0; i < 10000; i++) {
       const x = (Math.random() - 0.5) * 2000;
@@ -131,7 +129,7 @@ function Home() {
     const renderer = new WebGLRenderer({ alpha: true, antialias: true });
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setClearColor(isDarkMode ? 0x181818 : 0xffffff, 1); // Background color based on theme mode
-  
+
     if (containerRef.current) {
       containerRef.current.appendChild(renderer.domElement);
     }
@@ -177,9 +175,11 @@ function Home() {
 
   return (
     <>
-    <ThemeSwitcher />
-      <HomePageWrapper ref={containerRef}>
       
+      <HomePageWrapper ref={containerRef}>
+      <div style={{ position: 'absolute', top: '1rem', right: '1rem' }}>
+          <ThemeSwitcher />
+        </div>
         <animated.div
           style={{
             ...fadeIn,
@@ -188,7 +188,6 @@ function Home() {
             left: "50%",
             transform: "translate(-50%, -50%)",
             fontSize: "5rem",
-            
           }}
         >
           Sam Jones
@@ -279,31 +278,31 @@ function Home() {
             </Grid>
           </Grid>
         </Grid>
-        </HomePageWrapper>
+      </HomePageWrapper>
 
-        <div style={{ padding: '2rem' }}>
-        <Typography variant="h4" align="center" gutterBottom>
-          Projects
-        </Typography>
-        <ProjectGrid projects={projects} />
-        <ProjectsCarousel projects={projects} />
-      </div>
-
-      <div style={{ padding: '2rem' }}>
-        <Typography variant="h4" align="center" gutterBottom>
-          Skills
-        </Typography>
-        <Skills />
-      </div>
-
-      <div style={{ padding: '2rem' }}>
+      <div style={{ padding: "2rem" }}>
         <Typography variant="h4" align="center" gutterBottom>
           About Me
         </Typography>
         <AboutMe />
       </div>
 
-      <div style={{ padding: '2rem' }}>
+      <div style={{ padding: "2rem" }}>
+        <Typography variant="h4" align="center" gutterBottom>
+          Projects
+        </Typography>
+        <ProjectGrid projects={projects} />
+        {/* <ProjectsCarousel projects={projects} /> */}
+      </div>
+
+      <div style={{ padding: "2rem" }}>
+        <Typography variant="h4" align="center" gutterBottom>
+          Skills
+        </Typography>
+        <Skills />
+      </div>
+
+      <div style={{ padding: "2rem" }}>
         <Typography variant="h4" align="center" gutterBottom>
           Socials
         </Typography>

@@ -1,15 +1,22 @@
-// ThemeSwitcher.tsx
 import React from 'react';
 import { useThemeContext } from '../styles/ThemeContext';
-import { Button } from '@mui/material';
+import { Switch, FormControlLabel } from '@mui/material';
 
 const ThemeSwitcher: React.FC = () => {
   const { toggleTheme, isDarkMode } = useThemeContext();
 
   return (
-    <Button onClick={toggleTheme}>
-      {isDarkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
-    </Button>
+    <FormControlLabel
+      control={
+        <Switch
+          checked={isDarkMode}
+          onChange={toggleTheme}
+          color="default"
+          inputProps={{ 'aria-label': 'Toggle light/dark mode' }}
+        />
+      }
+      label={isDarkMode ? 'Dark Mode' : 'Light Mode'}
+    />
   );
 };
 
