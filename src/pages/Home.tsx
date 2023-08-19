@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import ProjectGrid from "../components/ProjectGrid";
-import ContactMe from "../components/ContactMe";
+import { useThemeContext } from '../styles/ThemeContext';
 import ThemeSwitcher from '../components/ThemeSwitcher';
 import {
   Scene,
@@ -45,6 +45,8 @@ type Project = {
 };
 
 function Home() {
+
+  const { isDarkMode } = useThemeContext();
   const containerRef = useRef<HTMLDivElement | null>(null); // Type ref for an HTMLDivElement
 
   const projects: Project[] = [
@@ -102,13 +104,15 @@ function Home() {
 
     const starsGeometry = new BufferGeometry();
     const starsMaterial = new PointsMaterial({
-      color: 0xffffff,
+      color: isDarkMode ? 0xffffff : 0x000000, // Stars color based on theme mode
       size: 2,
       map: loader.load("textures/stars.jpg"),
       transparent: true,
-      blending: AdditiveBlending,
+      blending: isDarkMode ? AdditiveBlending : undefined, // Set blending based on theme mode
+      opacity: isDarkMode ? 1 : 0.5, // Set opacity based on theme mode
     });
-
+    
+  
     const vertices: number[] = [];
     for (let i = 0; i < 10000; i++) {
       const x = (Math.random() - 0.5) * 2000;
@@ -125,8 +129,9 @@ function Home() {
     scene.add(stars);
 
     const renderer = new WebGLRenderer({ alpha: true, antialias: true });
-    renderer.setClearColor(0x00000, 0);
     renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setClearColor(isDarkMode ? 0x181818 : 0xffffff, 1); // Background color based on theme mode
+  
     if (containerRef.current) {
       containerRef.current.appendChild(renderer.domElement);
     }
@@ -168,7 +173,7 @@ function Home() {
         containerRef.current.removeChild(renderer.domElement);
       }
     };
-  });
+  }, [isDarkMode]);
 
   return (
     <>
