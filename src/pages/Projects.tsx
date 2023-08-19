@@ -3,6 +3,7 @@ import { Card, CardActionArea, CardContent, CardMedia, Typography, Button } from
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LanguageIcon from '@mui/icons-material/Language';
 import Chip from '@mui/material/Chip';
+import Header from '../components/Header';
 
 const ProjectCard: React.FC<{
   thumbnail: string;
@@ -65,7 +66,7 @@ const ProjectCard: React.FC<{
 const Projects: React.FC = () => {
   const projects = [
     {
-      thumbnail: "path/to/image1.png", // Replace with actual image URL
+      thumbnail: "https://placehold.co/400 ", // Replace with actual image URL
       title: "Project 1",
       description: "Description of project 1",
       techUsed: ["React", "Node.js", "MongoDB"],
@@ -73,17 +74,59 @@ const Projects: React.FC = () => {
       demoLink: "https://project1.demo", // Replace with actual demo link
     },
     {
-      thumbnail: "path/to/image2.png", // Replace with actual image URL
+      thumbnail: "https://placehold.co/400", // Replace with actual image URL
       title: "Project 2",
       description: "Description of project 2",
       techUsed: ["Angular", "Express", "MySQL"],
       githubLink: "https://github.com/ParticularSpace/project2", // Replace with actual GitHub link
       demoLink: "https://project2.demo", // Replace with actual demo link
     },
+    {
+        thumbnail: "https://placehold.co/400", // Replace with actual image URL
+        title: "Project 2",
+        description: "Description of project 2",
+        techUsed: ["Angular", "Express", "MySQL"],
+        githubLink: "https://github.com/ParticularSpace/project2", // Replace with actual GitHub link
+        demoLink: "https://project2.demo", // Replace with actual demo link
+      },
+      {
+        thumbnail: "https://placehold.co/400", // Replace with actual image URL
+        title: "Project 2",
+        description: "Description of project 2",
+        techUsed: ["Angular", "Express", "MySQL"],
+        githubLink: "https://github.com/ParticularSpace/project2", // Replace with actual GitHub link
+        demoLink: "https://project2.demo", // Replace with actual demo link
+      },
+      {
+        thumbnail: "https://placehold.co/400", // Replace with actual image URL
+        title: "Project 2",
+        description: "Description of project 2",
+        techUsed: ["Angular", "Express", "MySQL"],
+        githubLink: "https://github.com/ParticularSpace/project2", // Replace with actual GitHub link
+        demoLink: "https://project2.demo", // Replace with actual demo link
+      },
+      {
+        thumbnail: "https://placehold.co/400", // Replace with actual image URL
+        title: "Project 2",
+        description: "Description of project 2",
+        techUsed: ["Angular", "Express", "MySQL"],
+        githubLink: "https://github.com/ParticularSpace/project2", // Replace with actual GitHub link
+        demoLink: "https://project2.demo", // Replace with actual demo link
+      },
+      {
+        thumbnail: "https://placehold.co/400", // Replace with actual image URL
+        title: "Project 2",
+        description: "Description of project 2",
+        techUsed: ["Angular", "Express", "MySQL"],
+        githubLink: "https://github.com/ParticularSpace/project2", // Replace with actual GitHub link
+        demoLink: "https://project2.demo", // Replace with actual demo link
+      },
     // Add more projects as needed
   ];
 
   return (
+    <>
+    <Header />
     <div>
       {projects.map((project, index) => (
         <ProjectCard
@@ -99,6 +142,7 @@ const Projects: React.FC = () => {
         />
       ))}
     </div>
+    </>
   );
 };
 
