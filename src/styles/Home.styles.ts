@@ -66,7 +66,8 @@ export const ProjectCard = styled.div`
 export const SliderWrapper = styled.div`
 max-width: 70%;
 padding: 0 10px;
-margin: 10%; 
+margin-top: 5px; 
+margin-bottom: 15px; 
 `;
 
 export const CarouselContainer = styled.div`

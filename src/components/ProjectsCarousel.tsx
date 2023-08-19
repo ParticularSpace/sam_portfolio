@@ -2,6 +2,8 @@ import React, { useRef, useState } from "react";
 
 import { ArrowBackIos, ArrowForwardIos } from "@mui/icons-material";
 
+import { Typography } from "@mui/material";
+
 import Slider from "react-slick";
 
 import {
@@ -47,12 +49,12 @@ const ProjectsCarousel: React.FC<ProjectsCarouselProps> = ({ projects }) => {
   };
 
   return (
-    <ProjectsSection>
-      <h2>Projects</h2>
-
+    <>
+      <Typography variant="h4" align="center">
+        More Projects
+      </Typography>
       <CarouselContainer>
         {/* left arrow */}
-
         <div
           className="carousel-arrow"
           onClick={() => sliderRef.current?.slickPrev()}
@@ -75,7 +77,6 @@ const ProjectsCarousel: React.FC<ProjectsCarouselProps> = ({ projects }) => {
         </SliderWrapper>
 
         {/* right arrow */}
-
         <div
           className="carousel-arrow"
           onClick={() => sliderRef.current?.slickNext()}
@@ -95,7 +96,7 @@ const ProjectsCarousel: React.FC<ProjectsCarouselProps> = ({ projects }) => {
           </Button>
         </DialogActions>
       </Dialog>
-    </ProjectsSection>
+    </>
   );
 };
 

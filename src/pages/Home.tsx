@@ -16,7 +16,11 @@ import { useSpring, animated } from "react-spring";
 import { Button, Grid } from "@mui/material"; // Importing Button and Grid from Material-UI
 
 import ProjectsCarousel from "../components/ProjectsCarousel";
+
+import Skills from "../components/Skills";
+
 import AboutMe from "../components/AboutMe";
+
 import { HomePageWrapper } from "../styles/Home.styles";
 
 import "slick-carousel/slick/slick.css";
@@ -256,20 +260,24 @@ function Home() {
         </Grid>
       </HomePageWrapper>
 
-      <div >
+      <div>
         <ProjectGrid projects={projects} />
       </div>
 
-      <div style={{ paddingTop: "10vh" }}>
-        <ContactMe />
+      <div>
+        <ProjectsCarousel projects={projects} />
       </div>
 
-      {/* <div style={{ paddingTop: "33vh" }}>
-        <ProjectsCarousel projects={projects} />
-      </div> */}
+      <div style={{ paddingTop: "5vh" }}>
+        <Skills />
+      </div>
 
-      <div style={{ paddingTop: "33vh" }}>
+      <div style={{ paddingTop: "5vh" }}>
         <AboutMe />
+      </div>
+
+      <div style={{ paddingTop: "5vh" }}>
+        <ContactMe />
       </div>
     </>
   );
