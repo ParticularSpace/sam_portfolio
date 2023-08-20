@@ -73,7 +73,7 @@ const Skills: React.FC = () => {
     ];
   
     return (
-      <div style={{ padding: '2rem' }}>
+      <div style={{ padding: '1 rem' }}>
         <SkillsSection title="Frontend" skills={frontendSkills} />
         <SkillsSection title="Backend" skills={backendSkills} />
         <SkillsSection title="Databases" skills={databaseSkills} />

@@ -80,6 +80,14 @@ padding: 0;
 margin: 0;
 `;
 
-
+export const SectionTitle = styled.div`
+  padding: 10px;
+  background-color: #f5f5f5;
+  width: fit-content;
+  border-radius: 5px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  margin: 15px 15px;
+  text-align: left;
+`;
 
 

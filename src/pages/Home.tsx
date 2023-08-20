@@ -32,7 +32,7 @@ import AboutMe from "../components/AboutMe";
 
 import Socials from "../components/Socials";
 
-import { HomePageWrapper } from "../styles/Home.styles";
+import { HomePageWrapper, SectionTitle } from "../styles/Home.styles";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -86,6 +86,9 @@ function Home() {
     to: { opacity: 1 },
     delay: 500,
   });
+
+  const textColor = isDarkMode ? "white" : "black";
+  const buttonBackgroundColor = isDarkMode ? "grey" : "grey";
 
   useEffect(() => {
     let mouseX = 0,
@@ -159,6 +162,8 @@ function Home() {
     window.addEventListener("resize", handleResize);
     animate();
 
+
+
     return () => {
       document.removeEventListener("mousemove", onDocumentMouseMove);
 
@@ -175,14 +180,14 @@ function Home() {
 
   return (
     <>
-      
       <HomePageWrapper ref={containerRef}>
-      <div style={{ position: 'absolute', top: '1rem', right: '1rem' }}>
+        <div style={{ position: "absolute", top: "1rem", right: "1rem" }}>
           <ThemeSwitcher />
         </div>
         <animated.div
           style={{
             ...fadeIn,
+            color: textColor, // Apply theme-based text color
             position: "absolute",
             top: "30%",
             left: "50%",
@@ -195,6 +200,7 @@ function Home() {
         <animated.div
           style={{
             ...fadeIn,
+            color: textColor, // Apply theme-based text color
             fontSize: "2rem",
             position: "absolute",
             top: "40%",
@@ -219,8 +225,9 @@ function Home() {
             <Grid item>
               <Button
                 variant="contained"
-                color="inherit"
                 style={{
+                  color: textColor, // Apply theme-based text color
+                  backgroundColor: buttonBackgroundColor, // Apply theme-based background color
                   width: "30rem",
                   height: "5rem",
                   margin: "5px",
@@ -235,6 +242,8 @@ function Home() {
                 variant="contained"
                 color="inherit"
                 style={{
+                  color: textColor, // Apply theme-based text color
+                  backgroundColor: buttonBackgroundColor, // Apply theme-based background color
                   width: "30rem",
                   height: "5rem",
                   margin: "5px",
@@ -253,6 +262,8 @@ function Home() {
                 variant="contained"
                 color="inherit"
                 style={{
+                  color: textColor, // Apply theme-based text color
+                  backgroundColor: buttonBackgroundColor, // Apply theme-based background color
                   width: "30rem",
                   height: "5rem",
                   margin: "5px",
@@ -267,6 +278,8 @@ function Home() {
                 variant="contained"
                 color="inherit"
                 style={{
+                  color: textColor, // Apply theme-based text color
+                  backgroundColor: buttonBackgroundColor, // Apply theme-based background color
                   width: "30rem",
                   height: "5rem",
                   margin: "5px",
@@ -280,32 +293,60 @@ function Home() {
         </Grid>
       </HomePageWrapper>
 
-      <div style={{ padding: "2rem" }}>
-        <Typography variant="h4" align="center" gutterBottom>
-          About Me
-        </Typography>
+      <div style={{ padding: "1rem" }}>
+        <SectionTitle>
+          <Typography
+            style={{
+              fontSize: "1.5rem",
+              textAlign: "center",
+            }}
+          >
+            About Me
+          </Typography>
+        </SectionTitle>
         <AboutMe />
       </div>
 
-      <div style={{ padding: "2rem" }}>
-        <Typography variant="h4" align="center" gutterBottom>
-          Projects
-        </Typography>
+      <div style={{ padding: "1rem" }}>
+        <SectionTitle>
+          <Typography
+            style={{
+              fontSize: "1.5rem",
+              textAlign: "center",
+            }}
+          >
+            Projects
+          </Typography>
+        </SectionTitle>
         <ProjectGrid projects={projects} />
         {/* <ProjectsCarousel projects={projects} /> */}
       </div>
 
-      <div style={{ padding: "2rem" }}>
-        <Typography variant="h4" align="center" gutterBottom>
-          Skills
-        </Typography>
+      <div style={{ padding: "1rem" }}>
+        <SectionTitle>
+          <Typography
+            style={{
+              fontSize: "1.5rem",
+              textAlign: "center",
+            }}
+          >
+            Skills
+          </Typography>
+        </SectionTitle>
         <Skills />
       </div>
 
-      <div style={{ padding: "2rem" }}>
-        <Typography variant="h4" align="center" gutterBottom>
-          Socials
-        </Typography>
+      <div style={{ padding: "1rem" }}>
+        <SectionTitle>
+          <Typography
+            style={{
+              fontSize: "1.5rem",
+              textAlign: "center",
+            }}
+          >
+            Socials
+          </Typography>
+        </SectionTitle>
         <Socials />
       </div>
     </>

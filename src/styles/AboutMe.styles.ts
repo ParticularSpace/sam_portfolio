@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const AboutSection = styled.div`
   padding: 20px;
   background-color: #f5f5f5;
-  border-radius: 10px;
+  border-radius: 5px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   margin: 30px 15px;
 
