@@ -80,14 +80,20 @@ padding: 0;
 margin: 0;
 `;
 
-export const SectionTitle = styled.div`
+type SectionTitleProps = {
+  isDarkMode: boolean;
+};
+
+export const SectionTitle = styled.div<SectionTitleProps>`
   padding: 10px;
-  background-color: #f5f5f5;
+  background-color: ${({ isDarkMode }) => (isDarkMode ? "#181818" : "#f5f5f5")};
+  color: ${({ isDarkMode }) => (isDarkMode ? "white" : "black")};
   width: fit-content;
   border-radius: 5px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
   margin: 15px 15px;
   text-align: left;
 `;
+
 
 

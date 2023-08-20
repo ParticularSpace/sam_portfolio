@@ -294,7 +294,7 @@ function Home() {
       </HomePageWrapper>
 
       <div style={{ padding: "1rem" }}>
-        <SectionTitle>
+        <SectionTitle isDarkMode={isDarkMode} >
           <Typography
             style={{
               fontSize: "1.5rem",
@@ -308,7 +308,7 @@ function Home() {
       </div>
 
       <div style={{ padding: "1rem" }}>
-        <SectionTitle>
+      <SectionTitle isDarkMode={isDarkMode} >
           <Typography
             style={{
               fontSize: "1.5rem",
@@ -323,7 +323,7 @@ function Home() {
       </div>
 
       <div style={{ padding: "1rem" }}>
-        <SectionTitle>
+      <SectionTitle isDarkMode={isDarkMode} >
           <Typography
             style={{
               fontSize: "1.5rem",
@@ -337,7 +337,7 @@ function Home() {
       </div>
 
       <div style={{ padding: "1rem" }}>
-        <SectionTitle>
+      <SectionTitle isDarkMode={isDarkMode} >
           <Typography
             style={{
               fontSize: "1.5rem",
