@@ -24,7 +24,7 @@ import {
   Divider,
 } from "@mui/material"; // Importing Button and Grid from Material-UI
 
-import ProjectsCarousel from "../components/ProjectsCarousel";
+// import ProjectsCarousel from "../components/ProjectsCarousel";
 
 import Skills from "../components/Skills";
 
@@ -51,21 +51,21 @@ function Home() {
   const projects: Project[] = [
     {
       id: "1",
-      title: "Project 1",
-      description: "Description for project 1",
-      imageUrl: "https://via.placeholder.com/300x250",
+      title: "Ecommerce Website",
+      description: "Full stack ecommerce website built with TypeScript, React, Node, Express, MongoDB, GQL, and Stripe.",
+      imageUrl: "../images/tech_store.png",
     },
     {
       id: "2",
-      title: "Project 2",
-      description: "Description for project 2",
-      imageUrl: "https://via.placeholder.com/300x250",
+      title: "AI Chat App",
+      description: "An AI with multiple functionalities such as: Chat, Translation, Stock analysis, and Speech to Text.",
+      imageUrl: "../images/Ai_chat.png",
     },
     {
       id: "3",
-      title: "Project 3",
-      description: "Description for project 3",
-      imageUrl: "https://via.placeholder.com/300x250",
+      title: "React Weather App",
+      description: "Using OpenWeatherMap API to create a weather app with React.",
+      imageUrl: "../images/weather_app.png",
     },
     {
       id: "4",
@@ -181,9 +181,11 @@ function Home() {
   return (
     <>
       <HomePageWrapper ref={containerRef}>
+        <SectionTitle isDarkMode={isDarkMode} >
         <div style={{ position: "absolute", top: "1rem", right: "1rem" }}>
           <ThemeSwitcher />
         </div>
+        </SectionTitle>
         <animated.div
           style={{
             ...fadeIn,
@@ -285,6 +287,8 @@ function Home() {
                   margin: "5px",
                   fontSize: "1.5rem",
                 }}
+                component={Link}
+                to="/contact"
               >
                 Contact
               </Button>
@@ -337,16 +341,6 @@ function Home() {
       </div>
 
       <div style={{ padding: "1rem" }}>
-      <SectionTitle isDarkMode={isDarkMode} >
-          <Typography
-            style={{
-              fontSize: "1.5rem",
-              textAlign: "center",
-            }}
-          >
-            Socials
-          </Typography>
-        </SectionTitle>
         <Socials />
       </div>
     </>

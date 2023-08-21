@@ -1,10 +1,13 @@
 import React from "react";
 import { Typography, Grid, Avatar } from "@mui/material";
 import { AboutSection } from "../styles/AboutMe.styles";
+import { useThemeContext } from "../styles/ThemeContext";
 
 const AboutMe: React.FC = () => {
+  const { isDarkMode } = useThemeContext(); 
+  
   return (
-    <AboutSection>
+    <AboutSection isDarkMode={isDarkMode}>
       <Grid container spacing={3} alignItems="center">
         <Grid item xs={12} sm={4} md={3}>
           <Avatar
@@ -14,8 +17,8 @@ const AboutMe: React.FC = () => {
           />
         </Grid>
         <Grid item xs={12} sm={8} md={9}>
-          <Typography variant="body1">
-            Hello! My name is Sam Jones a graduate of the UC Berkeley Coding Bootcamp, and I am a full-stack developer based in Seattle, WA. 
+          <Typography variant="body1" style={{ color: isDarkMode ? 'white' : 'black' }}>
+            Hello! My name is Sam Jones a graduate of the UC Berkeley Coding Bootcamp, and I am a full-stack developer based in Seattle, WA.
           </Typography>
           <Typography variant="body1">
             Driven by curiosity and a passion for problem-solving, my projects

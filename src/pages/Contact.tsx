@@ -6,13 +6,11 @@ import { Button, TextField, Grid, Typography } from '@mui/material';
 import EmailIcon from '@mui/icons-material/Email';
 import PersonIcon from '@mui/icons-material/Person';
 import MessageIcon from '@mui/icons-material/Message';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
-import TwitterIcon from '@mui/icons-material/Twitter';
-import GitHubIcon from '@mui/icons-material/GitHub';
-import InstagramIcon from '@mui/icons-material/Instagram';
 import { ContactForm } from '../styles/Contact.styles';
 
-const ContactMe: React.FC = () => {
+import Header from '../components/Header';
+
+const Contact: React.FC = () => {
   const validationSchema = Yup.object().shape({
     name: Yup.string().required('Name is required'),
     email: Yup.string().required('Email is required').email('Email is not valid'),
@@ -44,6 +42,8 @@ const ContactMe: React.FC = () => {
   };
 
   return (
+    <>
+    <Header />
     <div style={{ padding: '2rem' }}>
       <Typography variant="h4" align="center">
         Contact Me
@@ -117,7 +117,8 @@ const ContactMe: React.FC = () => {
         </Grid>
       </ContactForm>
     </div>
+    </>
   );
 };
 
-export default ContactMe;
+export default Contact;
