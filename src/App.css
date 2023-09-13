@@ -5,7 +5,7 @@
     --soft-red: #FFCDD2;
     --strong-blue: #1976D2;
     --soft-blue: #BBDEFB;
-    --bg-color: #FFFFFF;
+    --bg-color: #ffffff;
     --text-color: #333333;
   }
 
@@ -33,4 +33,6 @@
   button:hover, .button:hover {
     background-color: var(--soft-red);
   }
+
+  
   

@@ -4,31 +4,33 @@ import { AboutSection } from "../styles/AboutMe.styles";
 import { useThemeContext } from "../styles/ThemeContext";
 
 const AboutMe: React.FC = () => {
-  const { isDarkMode } = useThemeContext(); 
-  
+  const { isDarkMode } = useThemeContext();
+
   return (
     <AboutSection isDarkMode={isDarkMode}>
       <Grid container spacing={3} alignItems="center">
-        <Grid item xs={12} sm={4} md={3}>
-          <Avatar
-            alt="Your Name"
-            src="../images/profilepic.jpeg"
-            style={{ width: "150px", height: "150px" }}
-          />
-        </Grid>
         <Grid item xs={12} sm={8} md={9}>
-          <Typography variant="body1" style={{ color: isDarkMode ? 'white' : 'black' }}>
-            Hello! My name is Sam Jones a graduate of the UC Berkeley Coding Bootcamp, and I am a full-stack developer based in Seattle, WA.
+          <Typography variant="h4" style={{ marginBottom: "30px" }}>
+            About Me
           </Typography>
-          <Typography variant="body1">
-            Driven by curiosity and a passion for problem-solving, my projects
-            range from innovative personal experiments to robust professional
-            solutions. Through continuous learning and collaboration, I strive
-            to develop code that not only functions seamlessly but also makes a
-            meaningful impact. Feel free to browse my portfolio to explore my
-            projects and discover my unique approach to coding. If you have any
-            questions, opportunities, or just want to chat about technology,
-            please don't hesitate to contact me.
+          <Typography
+            variant="body1"
+            style={{ color: isDarkMode ? "white" : "black" }}
+          >
+            Hey there! I'm Sam Jones, and I've got the UC Berkeley Coding
+            Bootcamp to thank for catapulting me into the world of full-stack
+            development. I'm currently living in Seattle, WA. 
+            <br />
+            <br />
+            You know how some people are driven by
+            curiosity? That's me in a nutshell. Whether it's a nifty little
+            coding experiment or a full-blown professional application, I get a
+            kick out of solving problems and turning ideas into reality.
+            <br />
+            <br />
+             Learning never stops in this field, and I couldn't be more grateful. I keep pushing the boundaries of what I know,
+            constantly collaborating with other smart folks and picking up new
+            tricks along the way. So go ahead, take a look around my portfolio.
           </Typography>
         </Grid>
       </Grid>

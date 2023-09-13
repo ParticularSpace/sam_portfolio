@@ -1,6 +1,12 @@
-import React from 'react';
-import { Grid, Typography } from '@mui/material';
-import { ProjectCard, ProjectsSection, ShowcaseProjectCard, TitleBox, CardBackground } from "../styles/Home.styles";
+import React from "react";
+import { Grid, Typography } from "@mui/material";
+import {
+  ProjectCard,
+  ProjectsSection,
+  ShowcaseProjectCard,
+  TitleBox,
+  CardBackground,
+} from "../styles/Home.styles";
 
 type Project = {
   id: string;
@@ -19,7 +25,12 @@ const ProjectGrid: React.FC<Props> = ({ projects }) => {
 
   return (
     <ProjectsSection>
-      <ShowcaseProjectCard onClick={() => console.log("Clicked on " + showcaseProject.title)}>
+      <Typography variant="h4" style={{ marginBottom: "30px" }}>
+        Recent Projects
+      </Typography>
+      <ShowcaseProjectCard
+        onClick={() => console.log("Clicked on " + showcaseProject.title)}
+      >
         <CardBackground imageUrl={showcaseProject.imageUrl} />
         <TitleBox>
           <Typography variant="h4">{showcaseProject.title}</Typography>
@@ -34,7 +45,9 @@ const ProjectGrid: React.FC<Props> = ({ projects }) => {
       <Grid container spacing={3}>
         {otherProjects.map((project) => (
           <Grid key={project.id} item xs={12} sm={6} md={4} lg={3}>
-            <ProjectCard onClick={() => console.log("Clicked on " + project.title)}>
+            <ProjectCard
+              onClick={() => console.log("Clicked on " + project.title)}
+            >
               <CardBackground imageUrl={project.imageUrl} />
               <TitleBox>
                 <Typography variant="h6">{project.title}</Typography>
@@ -53,4 +66,3 @@ const ProjectGrid: React.FC<Props> = ({ projects }) => {
 };
 
 export default ProjectGrid;
-

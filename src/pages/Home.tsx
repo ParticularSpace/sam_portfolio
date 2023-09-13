@@ -32,7 +32,7 @@ import AboutMe from "../components/AboutMe";
 
 import Socials from "../components/Socials";
 
-import { HomePageWrapper, SectionTitle } from "../styles/Home.styles";
+import { HomePageWrapper, SectionTitle, ColumnWrapper } from "../styles/Home.styles";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -296,9 +296,10 @@ function Home() {
           </Grid>
         </Grid>
       </HomePageWrapper>
-
+      <ColumnWrapper>
       <div style={{ padding: "1rem" }}>
-        
+      <SectionTitle isDarkMode={isDarkMode} >
+        </SectionTitle>
         <AboutMe />
       </div>
 
@@ -315,6 +316,7 @@ function Home() {
       <div style={{ padding: "1rem" }}>
         <Socials />
       </div>
+      </ColumnWrapper>
     </>
   );
 }

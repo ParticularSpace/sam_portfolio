@@ -37,14 +37,17 @@ type SectionTitleProps = {
 };
 
 export const SectionTitle = styled.div<SectionTitleProps>`
-  padding: 0;
-  background-color: ${({ isDarkMode }) => (isDarkMode ? "#181818" : "#f5f5f5")};
-  color: ${({ isDarkMode }) => (isDarkMode ? "white" : "black")};
-  width: fit-content;
-  border-radius: 5px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-  margin: 0px;
-  text-align: left;
+padding: 0;
+background-color: transparent;
+color: ${({ isDarkMode }) => (isDarkMode ? "white" : "black")};
+font-weight: bold; 
+width: fit-content;
+border-radius: 5px;
+box-shadow: none; 
+margin: 5px;
+text-align: left;
+
+
 `;
 
 export const CardBackground = styled.div<{ imageUrl: string }>`
@@ -114,4 +117,11 @@ export const ProjectsSection = styled.div`
   width: 100%;
   padding: 20px;
   box-sizing: border-box;
+`;
+
+
+export const ColumnWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 10px 90px;  
 `;
