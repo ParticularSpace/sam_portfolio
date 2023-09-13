@@ -1,11 +1,36 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&family=Rubik&display=swap');
 
-body {
+:root {
+    --strong-red: #D32F2F;
+    --soft-red: #FFCDD2;
+    --strong-blue: #1976D2;
+    --soft-blue: #BBDEFB;
+    --bg-color: #FFFFFF;
+    --text-color: #333333;
+  }
+
+  * {
     margin: 0;
     padding: 0;
-    font-family: 'Rubik', sans-serif;
-    background: #6b5879;
-    background-size: cover;
-    background-position: center;
-    overflow-x: hidden;
-}
+    box-sizing: border-box;
+  }
+  
+  /* Apply to Components */
+  body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    font: Roboto, sans-serif;
+  }
+  
+  button, .button {
+    background-color: var(--strong-red);
+    color: var(--bg-color);
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  button:hover, .button:hover {
+    background-color: var(--soft-red);
+  }
+  

@@ -37,13 +37,13 @@ type SectionTitleProps = {
 };
 
 export const SectionTitle = styled.div<SectionTitleProps>`
-  padding: 10px;
+  padding: 0;
   background-color: ${({ isDarkMode }) => (isDarkMode ? "#181818" : "#f5f5f5")};
   color: ${({ isDarkMode }) => (isDarkMode ? "white" : "black")};
   width: fit-content;
   border-radius: 5px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
-  margin: 15px 15px;
+  margin: 0px;
   text-align: left;
 `;
 

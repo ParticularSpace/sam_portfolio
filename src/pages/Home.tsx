@@ -298,45 +298,17 @@ function Home() {
       </HomePageWrapper>
 
       <div style={{ padding: "1rem" }}>
-        <SectionTitle isDarkMode={isDarkMode} >
-          <Typography
-            style={{
-              fontSize: "1.5rem",
-              textAlign: "center",
-            }}
-          >
-            About Me
-          </Typography>
-        </SectionTitle>
+        
         <AboutMe />
       </div>
 
       <div style={{ padding: "1rem" }}>
-      <SectionTitle isDarkMode={isDarkMode} >
-          <Typography
-            style={{
-              fontSize: "1.5rem",
-              textAlign: "center",
-            }}
-          >
-            Projects
-          </Typography>
-        </SectionTitle>
+      
         <ProjectGrid projects={projects} />
-        {/* <ProjectsCarousel projects={projects} /> */}
       </div>
 
       <div style={{ padding: "1rem" }}>
-      <SectionTitle isDarkMode={isDarkMode} >
-          <Typography
-            style={{
-              fontSize: "1.5rem",
-              textAlign: "center",
-            }}
-          >
-            Skills
-          </Typography>
-        </SectionTitle>
+      
         <Skills />
       </div>
 
