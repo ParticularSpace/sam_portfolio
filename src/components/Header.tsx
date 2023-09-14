@@ -6,17 +6,18 @@ import styled from 'styled-components';
 const StyledHeader = styled.header`
     display: flex;
     justify-content: space-between;
-    align-items: center;  // for vertical alignment
+    align-items: center; 
     padding: 1rem;
+    z-index: 10; 
 `;
 
 const Navigation = styled.nav`
     & a {
         margin: 0 1rem;
-        text-decoration: none;  // to remove default link styles
-        color: inherit;         // use inherited color (from parent elements)
+        text-decoration: none;
+        color: inherit;       
         &:hover {
-            text-decoration: underline; // underline when hovered
+            text-decoration: underline;
         }
     }
 `;
@@ -31,7 +32,6 @@ function Header() {
                 <Link to="/about">About Me</Link>
                 <Link to="/projects">Projects</Link>
                 <Link to="/resume">Resume</Link>
-                <Link to="/blog">Blog</Link>
             </Navigation>
         </StyledHeader>
     );

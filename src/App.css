@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&family=Rubik&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;600&display=swap');
 
 :root {
     --strong-red: #D32F2F;
@@ -13,26 +13,16 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
   }
   
   /* Apply to Components */
   body {
     background-color: var(--bg-color);
     color: var(--text-color);
-    font: Roboto, sans-serif;
   }
   
-  button, .button {
-    background-color: var(--strong-red);
-    color: var(--bg-color);
-    border: none;
-    padding: 10px 20px;
-    cursor: pointer;
-  }
-  
-  button:hover, .button:hover {
-    background-color: var(--soft-red);
-  }
+
 
   
   

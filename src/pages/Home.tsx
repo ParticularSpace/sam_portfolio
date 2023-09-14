@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import ProjectGrid from "../components/ProjectGrid";
 import { useThemeContext } from "../styles/ThemeContext";
-import ThemeSwitcher from "../components/ThemeSwitcher";
+
+// Import Three.js animation
 import {
   Scene,
   PerspectiveCamera,
@@ -14,29 +14,22 @@ import {
   WebGLRenderer,
   AdditiveBlending,
 } from "three";
+
 import { useSpring, animated } from "react-spring";
-import {
-  Button,
-  Container,
-  Grid,
-  Typography,
-  Paper,
-  Divider,
-} from "@mui/material"; // Importing Button and Grid from Material-UI
+import { Button, Grid } from "@mui/material"; 
 
-// import ProjectsCarousel from "../components/ProjectsCarousel";
-
+// Import components
 import Skills from "../components/Skills";
-
 import AboutMe from "../components/AboutMe";
-
 import Socials from "../components/Socials";
+import ProjectGrid from "../components/ProjectGrid";
+import ThemeSwitcher from "../components/ThemeSwitcher";
+import Header from "../components/Header";
 
-import { HomePageWrapper, SectionTitle, ColumnWrapper } from "../styles/Home.styles";
+// Import styles
+import { HomePageWrapper, SectionTitle, ColumnWrapper, } from "../styles/Home.styles";
 
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-
+// Define project type
 type Project = {
   id: string;
   title: string;
@@ -46,25 +39,29 @@ type Project = {
 
 function Home() {
   const { isDarkMode } = useThemeContext();
-  const containerRef = useRef<HTMLDivElement | null>(null); // Type ref for an HTMLDivElement
+  
+  const containerRef = useRef<HTMLDivElement | null>(null);
 
   const projects: Project[] = [
     {
       id: "1",
       title: "Ecommerce Website",
-      description: "Full stack ecommerce website built with TypeScript, React, Node, Express, MongoDB, GQL, and Stripe.",
+      description:
+        "Full stack ecommerce website built with TypeScript, React, Node, Express, MongoDB, GQL, and Stripe.",
       imageUrl: "../images/tech_store.png",
     },
     {
       id: "2",
       title: "AI Chat App",
-      description: "An AI with multiple functionalities such as: Chat, Translation, Stock analysis, and Speech to Text.",
+      description:
+        "An AI with multiple functionalities such as: Chat, Translation, Stock analysis, and Speech to Text.",
       imageUrl: "../images/Ai_chat.png",
     },
     {
       id: "3",
       title: "React Weather App",
-      description: "Using OpenWeatherMap API to create a weather app with React.",
+      description:
+        "Using OpenWeatherMap API to create a weather app with React.",
       imageUrl: "../images/weather_app.png",
     },
     {
@@ -81,15 +78,22 @@ function Home() {
     },
   ];
 
+  // Fade in animation for title
   const fadeIn = useSpring({
     from: { opacity: 0 },
     to: { opacity: 1 },
     delay: 500,
   });
 
+  // Apply theme-based colors
   const textColor = isDarkMode ? "white" : "black";
   const buttonBackgroundColor = isDarkMode ? "grey" : "grey";
 
+
+  const [showHeader, setShowHeader] = useState(false);
+
+
+  // Three.js animation
   useEffect(() => {
     let mouseX = 0,
       mouseY = 0;
@@ -126,6 +130,7 @@ function Home() {
       "position",
       new Float32BufferAttribute(vertices, 3)
     );
+
     const stars = new Points(starsGeometry, starsMaterial);
     scene.add(stars);
 
@@ -162,12 +167,23 @@ function Home() {
     window.addEventListener("resize", handleResize);
     animate();
 
+    const handleScroll = () => {
+      const columnWrapper = document.getElementById('column-wrapper');
+      if (columnWrapper) {
+        const rect = columnWrapper.getBoundingClientRect();
+        const shouldBeVisible = rect.top <= 0;
+        console.log("Should header be visible:", shouldBeVisible);  // Debug log
+        setShowHeader(shouldBeVisible);
+      }
+    }; 
 
+    window.addEventListener('scroll', handleScroll);
 
     return () => {
       document.removeEventListener("mousemove", onDocumentMouseMove);
-
       window.removeEventListener("resize", handleResize);
+      window.removeEventListener('scroll', handleScroll); // Add this line
+    
       if (
         containerRef.current &&
         renderer.domElement &&
@@ -176,15 +192,18 @@ function Home() {
         containerRef.current.removeChild(renderer.domElement);
       }
     };
-  }, [isDarkMode]);
+  }, [isDarkMode, setShowHeader]);
 
   return (
     <>
+    
+     <Header />
+
       <HomePageWrapper ref={containerRef}>
-        <SectionTitle isDarkMode={isDarkMode} >
-        <div style={{ position: "absolute", top: "1rem", right: "1rem" }}>
-          <ThemeSwitcher />
-        </div>
+        <SectionTitle isDarkMode={isDarkMode}>
+          <div style={{ position: "absolute", top: "1rem", right: "1rem" }}>
+            <ThemeSwitcher />
+          </div>
         </SectionTitle>
         <animated.div
           style={{
@@ -296,26 +315,25 @@ function Home() {
           </Grid>
         </Grid>
       </HomePageWrapper>
-      <ColumnWrapper>
-      <div style={{ padding: "1rem" }}>
-      <SectionTitle isDarkMode={isDarkMode} >
-        </SectionTitle>
-        <AboutMe />
-      </div>
 
-      <div style={{ padding: "1rem" }}>
-      
-        <ProjectGrid projects={projects} />
-      </div>
+      <ColumnWrapper id="column-wrapper">
 
-      <div style={{ padding: "1rem" }}>
-      
-        <Skills />
-      </div>
+        <div style={{ padding: "1rem" }}>
+            <AboutMe />       
+        </div>
 
-      <div style={{ padding: "1rem" }}>
-        <Socials />
-      </div>
+        <div style={{ padding: "1rem" }}>
+          <ProjectGrid projects={projects} />
+        </div>
+
+        <div style={{ padding: "1rem" }}>
+          <Skills />
+        </div>
+
+        <div style={{ padding: "1rem" }}>
+          <Socials />
+        </div>
+
       </ColumnWrapper>
     </>
   );

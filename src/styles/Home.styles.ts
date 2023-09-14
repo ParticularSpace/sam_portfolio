@@ -15,23 +15,6 @@ export const HomePageWrapper = styled.div<StyledProps>`
   background-color: white;
 `;
 
-export const SliderWrapper = styled.div`
-max-width: 70%;
-padding: 0 10px;
-margin-top: 5px; 
-margin-bottom: 15px; 
-`;
-
-export const CarouselContainer = styled.div`
-display: flex;
-align-items: center;
-justify-content: center;
-width: 100%;
-overflow: hidden;
-padding: 0;
-margin: 0;
-`;
-
 type SectionTitleProps = {
   isDarkMode: boolean;
 };
@@ -39,8 +22,7 @@ type SectionTitleProps = {
 export const SectionTitle = styled.div<SectionTitleProps>`
 padding: 0;
 background-color: transparent;
-color: ${({ isDarkMode }) => (isDarkMode ? "white" : "black")};
-font-weight: bold; 
+color: ${({ isDarkMode }) => (isDarkMode ? "white" : "black")}; 
 width: fit-content;
 border-radius: 5px;
 box-shadow: none; 
@@ -123,5 +105,5 @@ export const ProjectsSection = styled.div`
 export const ColumnWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  padding: 10px 90px;  
+    
 `;

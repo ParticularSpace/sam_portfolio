@@ -6,6 +6,6 @@ type AboutMeProps = {
 
 export const AboutSection = styled.div<AboutMeProps>`
   padding: 20px;
-  
-  
-`;
+  font-size: 1.2rem;
+  font-family: 'Montserrat', sans-serif;`
+  ;
