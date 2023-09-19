@@ -16,7 +16,7 @@ import {
 } from "three";
 
 import { useSpring, animated } from "react-spring";
-import { Button, Grid } from "@mui/material"; 
+import { Grid, Typography } from "@mui/material";
 
 // Import components
 import Skills from "../components/Skills";
@@ -27,7 +27,15 @@ import ThemeSwitcher from "../components/ThemeSwitcher";
 import Header from "../components/Header";
 
 // Import styles
-import { HomePageWrapper, SectionTitle, ColumnWrapper, StyledButton } from "../styles/Home.styles";
+import {
+  HomePageWrapper,
+  AboutMeWrapper,
+  SectionTitle,
+  ColumnWrapper,
+  StyledButton,
+  ProjectGridWrapper,
+  SkillsWrapper,
+} from "../styles/Home.styles";
 
 // Define project type
 type Project = {
@@ -39,7 +47,7 @@ type Project = {
 
 function Home() {
   const { isDarkMode } = useThemeContext();
-  
+
   const containerRef = useRef<HTMLDivElement | null>(null);
 
   const projects: Project[] = [
@@ -89,10 +97,7 @@ function Home() {
   const textColor = isDarkMode ? "white" : "black";
   const buttonBackgroundColor = isDarkMode ? "grey" : "grey";
 
-
   const [showHeader, setShowHeader] = useState(false);
-
- 
 
   // Three.js animation
   useEffect(() => {
@@ -169,22 +174,22 @@ function Home() {
     animate();
 
     const handleScroll = () => {
-      const columnWrapper = document.getElementById('column-wrapper');
+      const columnWrapper = document.getElementById("column-wrapper");
       if (columnWrapper) {
         const rect = columnWrapper.getBoundingClientRect();
         const shouldBeVisible = rect.top <= 0;
-        console.log("Should header be visible:", shouldBeVisible);  // Debug log
+        console.log("Should header be visible:", shouldBeVisible); // Debug log
         setShowHeader(shouldBeVisible);
       }
-    }; 
+    };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
 
     return () => {
       document.removeEventListener("mousemove", onDocumentMouseMove);
       window.removeEventListener("resize", handleResize);
-      window.removeEventListener('scroll', handleScroll); // Add this line
-    
+      window.removeEventListener("scroll", handleScroll); // Add this line
+
       if (
         containerRef.current &&
         renderer.domElement &&
@@ -197,8 +202,7 @@ function Home() {
 
   return (
     <>
-     <Header showHeader={showHeader} />
-
+      <Header showHeader={showHeader} />
 
       <HomePageWrapper ref={containerRef}>
         <SectionTitle isDarkMode={isDarkMode}>
@@ -243,59 +247,78 @@ function Home() {
             transform: "translate(-50%, -50%)",
           }}
         >
-<Grid container spacing={4} justifyContent="center">
-          <Grid item>
-            <Link to="/">
-              <StyledButton buttonColor={buttonBackgroundColor} textColor={textColor}>
-                Home
-              </StyledButton>
-            </Link>
+          <Grid container spacing={4} justifyContent="center">
+            <Grid item>
+              <Link to="/">
+                <StyledButton
+                  buttonColor={buttonBackgroundColor}
+                  textColor={textColor}
+                >
+                  Home
+                </StyledButton>
+              </Link>
+            </Grid>
+            <Grid item>
+              <Link to="/projects">
+                <StyledButton
+                  buttonColor={buttonBackgroundColor}
+                  textColor={textColor}
+                >
+                  Projects
+                </StyledButton>
+              </Link>
+            </Grid>
           </Grid>
-          <Grid item>
-            <Link to="/projects">
-              <StyledButton buttonColor={buttonBackgroundColor} textColor={textColor}>
-                Projects
-              </StyledButton>
-            </Link>
+          <Grid container spacing={3} justifyContent="center">
+            <Grid item>
+              <Link to="/about-me">
+                <StyledButton
+                  buttonColor={buttonBackgroundColor}
+                  textColor={textColor}
+                >
+                  About Me
+                </StyledButton>
+              </Link>
+            </Grid>
+            <Grid item>
+              <Link to="/contact">
+                <StyledButton
+                  buttonColor={buttonBackgroundColor}
+                  textColor={textColor}
+                >
+                  Contact
+                </StyledButton>
+              </Link>
+            </Grid>
           </Grid>
         </Grid>
-        <Grid container spacing={3} justifyContent="center">
-          <Grid item>
-            <Link to="/about-me">
-              <StyledButton buttonColor={buttonBackgroundColor} textColor={textColor}>
-                About Me
-              </StyledButton>
-            </Link>
-          </Grid>
-          <Grid item>
-            <Link to="/contact">
-              <StyledButton buttonColor={buttonBackgroundColor} textColor={textColor}>
-                Contact
-              </StyledButton>
-            </Link>
-          </Grid>
-        </Grid>
-      </Grid>
-    </HomePageWrapper>
+      </HomePageWrapper>
 
       <ColumnWrapper id="column-wrapper">
-
         <div style={{ padding: "1rem" }}>
-            <AboutMe />       
+          <AboutMeWrapper>
+            <AboutMe />
+          </AboutMeWrapper>
         </div>
 
-        <div style={{ padding: "1rem" }}>
-          <ProjectGrid projects={projects} />
+        <div>
+        <Typography variant="h4" style={{ marginBottom: "30px", marginLeft: "149px", color: "red" }}>
+        Recent Projects
+      </Typography>
+          <ProjectGridWrapper isDarkMode={isDarkMode}>
+            <ProjectGrid projects={projects} />
+          </ProjectGridWrapper>
         </div>
 
-        <div style={{ padding: "1rem" }}>
-          <Skills />
+        <div>
+          <SkillsWrapper>
+            <Skills />
+          </SkillsWrapper>
         </div>
 
         <div style={{ padding: "1rem" }}>
           <Socials />
         </div>
-
       </ColumnWrapper>
     </>
   );

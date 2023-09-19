@@ -8,14 +8,14 @@ const AboutMe: React.FC = () => {
 
   return (
     <AboutSection isDarkMode={isDarkMode}>
-      <Grid container spacing={3} alignItems="center">
-        <Grid item xs={12} sm={8} md={9}>
+      <Grid container spacing={3} alignItems="center" style={{ marginLeft: '24px' }}>
+  <Grid item xs={12} sm={8} md={9}>
           <Typography variant="h4" style={{ marginBottom: "30px" }}>
             About Me
           </Typography>
           <Typography
             variant="body1"
-            style={{ color: isDarkMode ? "white" : "black" }}
+            style={{ color: "black" }}
           >
             Hey there! I'm Sam Jones, and I've got the UC Berkeley Coding
             Bootcamp to thank for catapulting me into the world of full-stack

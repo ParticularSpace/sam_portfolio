@@ -49,8 +49,14 @@ border-radius: 5px;
 box-shadow: none; 
 margin: 5px;
 text-align: left;
+`;
 
-
+export const AboutMeWrapper = styled.div`
+  padding: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: left;  
+  width: 90%;  
 `;
 
 export const CardBackground = styled.div<{ imageUrl: string }>`
@@ -61,7 +67,6 @@ export const CardBackground = styled.div<{ imageUrl: string }>`
   height: 100%;
   background-image: url(${(props) => props.imageUrl});
   background-size: cover;
-  filter: blur(3px);
   z-index: -1;
 `;
 
@@ -78,7 +83,8 @@ export const ShowcaseProjectCard = styled.div`
   margin-bottom: 30px;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease-in-out;
-  overflow: hidden; // Hide the overflow of the blurred background
+  z-index: 1;
+  overflow: hidden;
 
   &:hover {
     cursor: pointer;
@@ -96,9 +102,10 @@ export const ProjectCard = styled.div`
   align-items: center;
   text-align: center;
   padding: 5px;
+  z-index: 1;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease-in-out;
-  overflow: hidden; // Hide the overflow of the blurred background
+  overflow: hidden;
 
   &:hover {
     cursor: pointer;
@@ -106,15 +113,7 @@ export const ProjectCard = styled.div`
   }
 `;
 
-export const TitleBox = styled.div`
-  background-color: rgba(255, 255, 255, 0.9); // Semi-transparent white background
-  border: 2px solid #6b5879;
-  margin: 10px;
-  padding: 10px;
-  border-radius: 5px;
-  text-align: center;
-  z-index: 1; // Place it above the blurred background
-`;
+
 
 export const ProjectsSection = styled.div`
   width: 100%;
@@ -128,3 +127,22 @@ export const ColumnWrapper = styled.div`
   flex-direction: column;
     
 `;
+
+
+export const ProjectGridWrapper = styled.div<{ isDarkMode: boolean }>`
+  padding: 1rem;
+  background-color: #0a3d62;
+  margin-left: 0;
+  margin-right: 0;
+  z-index: 1;
+  h4 {
+    text-align: left;
+  }
+`;
+
+export const SkillsWrapper = styled.div`
+  padding: 1rem;
+  text-align: left;
+  width: 100%;
+  background-color: red;
+  `;

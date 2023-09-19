@@ -1,11 +1,13 @@
-import styled from 'styled-components';
+// AboutMe.styles.ts
 
-type AboutMeProps = {
+import styled from "styled-components";
+
+type StyledProps = {
   isDarkMode: boolean;
 };
 
-export const AboutSection = styled.div<AboutMeProps>`
-  padding: 20px;
-  font-size: 1.2rem;
-  font-family: 'Montserrat', sans-serif;`
-  ;
+export const AboutSection = styled.div<StyledProps>`
+  color: red;
+  text-align: left;  
+  margin-bottom: 30px;
+`;

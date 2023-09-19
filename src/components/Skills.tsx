@@ -1,6 +1,6 @@
 import React from 'react';
 import { FaReact, FaHtml5, FaCss3, FaJs, FaNodeJs, FaPython } from 'react-icons/fa';
-import { SiTypescript, SiMongodb, SiMysql, SiHandlebarsdotjs, SiJquery } from 'react-icons/si';
+import { SiTypescript, SiMongodb, SiMysql, SiHandlebarsdotjs, SiJquery, SiGraphql } from 'react-icons/si';
 import { useSpring, animated } from 'react-spring';
 import { Typography, Grid, Accordion, AccordionSummary, AccordionDetails } from '@mui/material';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
@@ -59,6 +59,8 @@ const Skills: React.FC = () => {
     const backendSkills = [
       { icon: <FaNodeJs size={50} />, name: 'Node.js' },
       { icon: <FaPython size={50} />, name: 'Python' },
+      { icon: <SiGraphql size={50} />, name: 'GraphQL' },
+
     ];
   
     const databaseSkills = [

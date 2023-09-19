@@ -4,7 +4,6 @@ import {
   ProjectCard,
   ProjectsSection,
   ShowcaseProjectCard,
-  TitleBox,
   CardBackground,
 } from "../styles/Home.styles";
 
@@ -25,21 +24,10 @@ const ProjectGrid: React.FC<Props> = ({ projects }) => {
 
   return (
     <ProjectsSection>
-      <Typography variant="h4" style={{ marginBottom: "30px" }}>
-        Recent Projects
-      </Typography>
       <ShowcaseProjectCard
         onClick={() => console.log("Clicked on " + showcaseProject.title)}
       >
         <CardBackground imageUrl={showcaseProject.imageUrl} />
-        <TitleBox>
-          <Typography variant="h4">{showcaseProject.title}</Typography>
-        </TitleBox>
-        <TitleBox>
-          <Typography variant="body1" style={{ color: "#333" }}>
-            {showcaseProject.description}
-          </Typography>
-        </TitleBox>
       </ShowcaseProjectCard>
 
       <Grid container spacing={3}>
@@ -49,14 +37,7 @@ const ProjectGrid: React.FC<Props> = ({ projects }) => {
               onClick={() => console.log("Clicked on " + project.title)}
             >
               <CardBackground imageUrl={project.imageUrl} />
-              <TitleBox>
-                <Typography variant="h6">{project.title}</Typography>
-              </TitleBox>
-              <TitleBox>
-                <Typography variant="body2" style={{ color: "#333" }}>
-                  {project.description}
-                </Typography>
-              </TitleBox>
+      
             </ProjectCard>
           </Grid>
         ))}
