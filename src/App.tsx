@@ -12,9 +12,9 @@ function App() {
     <ThemeProvider>
       <Router>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/contact" element={<Contact />} />
+          <Route path="sam_portfolio/" element={<Home />} />
+          <Route path="sam_portfolio/projects" element={<Projects />} />
+          <Route path="sam_portfolio/contact" element={<Contact />} />
         </Routes>
         <Footer />
       </Router>

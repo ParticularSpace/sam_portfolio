@@ -162,7 +162,7 @@ export const SkillsWrapper = styled.div`
   padding: 1rem;
   text-align: left;
   width: 100%;
-  background-color: red;
+  background-color: rgb(33, 37, 41);
   `;
 
   export const ProjectInfo = styled.div`
@@ -222,3 +222,10 @@ export const TechItem = styled.li`
     margin-bottom: 5px;
   }
 `;
+
+export const SocialWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: red;
+  `;

@@ -35,6 +35,7 @@ import {
   StyledButton,
   ProjectGridWrapper,
   SkillsWrapper,
+  SocialWrapper
 } from "../styles/Home.styles";
 
 type Project = {
@@ -120,15 +121,16 @@ function Home() {
     camera.position.z = 1000;
 
     const loader = new TextureLoader();
+    let texturePath = isDarkMode ? "textures/stars.jpg" : "textures/stars.jpg";
 
     const starsGeometry = new BufferGeometry();
+
     const starsMaterial = new PointsMaterial({
-      color: isDarkMode ? 0xffffff : 0x000000, // Stars color based on theme mode
       size: 2,
-      map: loader.load("textures/stars.jpg"),
+      map: loader.load(texturePath),
       transparent: true,
-      blending: isDarkMode ? AdditiveBlending : undefined, // Set blending based on theme mode
-      opacity: isDarkMode ? 1 : 0.5, // Set opacity based on theme mode
+      blending: isDarkMode ? AdditiveBlending : undefined,
+      opacity: isDarkMode ? 1 : 0.5,
     });
 
     const vertices: number[] = [];
@@ -226,6 +228,7 @@ function Home() {
             left: "50%",
             transform: "translate(-50%, -50%)",
             fontSize: "5rem",
+            fontWeight: "bold",
           }}
         >
           Sam Jones
@@ -239,6 +242,7 @@ function Home() {
             top: "40%",
             left: "50%",
             transform: "translate(-50%, -50%)",
+            
           }}
         >
           Full Stack Developer
@@ -323,8 +327,10 @@ function Home() {
           </SkillsWrapper>
         </div>
 
-        <div style={{ padding: "1rem" }}>
-          <Socials />
+        <div>
+          <SocialWrapper>
+            <Socials />
+          </SocialWrapper>
         </div>
       </ColumnWrapper>
     </>
