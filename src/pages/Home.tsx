@@ -27,7 +27,7 @@ import ThemeSwitcher from "../components/ThemeSwitcher";
 import Header from "../components/Header";
 
 // Import styles
-import { HomePageWrapper, SectionTitle, ColumnWrapper, } from "../styles/Home.styles";
+import { HomePageWrapper, SectionTitle, ColumnWrapper, StyledButton } from "../styles/Home.styles";
 
 // Define project type
 type Project = {
@@ -243,79 +243,40 @@ function Home() {
             transform: "translate(-50%, -50%)",
           }}
         >
-          <Grid container spacing={4} justifyContent="center">
-            <Grid item>
-              <Button
-                variant="contained"
-                style={{
-                  color: textColor, // Apply theme-based text color
-                  backgroundColor: buttonBackgroundColor, // Apply theme-based background color
-                  width: "30rem",
-                  height: "5rem",
-                  margin: "5px",
-                  fontSize: "1.5rem",
-                }}
-              >
+<Grid container spacing={4} justifyContent="center">
+          <Grid item>
+            <Link to="/">
+              <StyledButton buttonColor={buttonBackgroundColor} textColor={textColor}>
                 Home
-              </Button>
-            </Grid>
-            <Grid item>
-              <Button
-                variant="contained"
-                color="inherit"
-                style={{
-                  color: textColor, // Apply theme-based text color
-                  backgroundColor: buttonBackgroundColor, // Apply theme-based background color
-                  width: "30rem",
-                  height: "5rem",
-                  margin: "5px",
-                  fontSize: "1.5rem",
-                }}
-                component={Link}
-                to="/projects"
-              >
-                Projects
-              </Button>
-            </Grid>
+              </StyledButton>
+            </Link>
           </Grid>
-          <Grid container spacing={3} justifyContent="center">
-            <Grid item>
-              <Button
-                variant="contained"
-                color="inherit"
-                style={{
-                  color: textColor, // Apply theme-based text color
-                  backgroundColor: buttonBackgroundColor, // Apply theme-based background color
-                  width: "30rem",
-                  height: "5rem",
-                  margin: "5px",
-                  fontSize: "1.5rem",
-                }}
-              >
-                About Me
-              </Button>
-            </Grid>
-            <Grid item>
-              <Button
-                variant="contained"
-                color="inherit"
-                style={{
-                  color: textColor, // Apply theme-based text color
-                  backgroundColor: buttonBackgroundColor, // Apply theme-based background color
-                  width: "30rem",
-                  height: "5rem",
-                  margin: "5px",
-                  fontSize: "1.5rem",
-                }}
-                component={Link}
-                to="/contact"
-              >
-                Contact
-              </Button>
-            </Grid>
+          <Grid item>
+            <Link to="/projects">
+              <StyledButton buttonColor={buttonBackgroundColor} textColor={textColor}>
+                Projects
+              </StyledButton>
+            </Link>
           </Grid>
         </Grid>
-      </HomePageWrapper>
+        <Grid container spacing={3} justifyContent="center">
+          <Grid item>
+            <Link to="/about-me">
+              <StyledButton buttonColor={buttonBackgroundColor} textColor={textColor}>
+                About Me
+              </StyledButton>
+            </Link>
+          </Grid>
+          <Grid item>
+            <Link to="/contact">
+              <StyledButton buttonColor={buttonBackgroundColor} textColor={textColor}>
+                Contact
+              </StyledButton>
+            </Link>
+          </Grid>
+        </Grid>
+      </Grid>
+    </HomePageWrapper>
 
       <ColumnWrapper id="column-wrapper">
 

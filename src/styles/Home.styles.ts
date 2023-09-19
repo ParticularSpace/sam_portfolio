@@ -15,6 +15,27 @@ export const HomePageWrapper = styled.div<StyledProps>`
   background-color: white;
 `;
 
+export const StyledButton = styled.button<{ buttonColor: string, textColor: string }>`
+  color: ${(props) => props.textColor};
+  background-color: ${(props) => props.buttonColor};
+  width: 30rem;
+  height: 5rem;
+  margin: 5px;
+  font-size: 1.5rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    background-color: darkgrey;
+  }
+
+  &:active {
+    background-color: black;
+    color: white;
+  }
+`;
+
 type SectionTitleProps = {
   isDarkMode: boolean;
 };
