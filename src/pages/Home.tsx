@@ -37,12 +37,12 @@ import {
   SkillsWrapper,
 } from "../styles/Home.styles";
 
-// Define project type
 type Project = {
   id: string;
   title: string;
   description: string;
   imageUrl: string;
+  technologies: string[]; 
 };
 
 function Home() {
@@ -57,6 +57,7 @@ function Home() {
       description:
         "Full stack ecommerce website built with TypeScript, React, Node, Express, MongoDB, GQL, and Stripe.",
       imageUrl: "../images/tech_store.png",
+      technologies: ['React', 'Node.js', 'MongoDB'],
     },
     {
       id: "2",
@@ -64,6 +65,7 @@ function Home() {
       description:
         "An AI with multiple functionalities such as: Chat, Translation, Stock analysis, and Speech to Text.",
       imageUrl: "../images/Ai_chat.png",
+      technologies: ['React', 'Node.js', 'MongoDB'],
     },
     {
       id: "3",
@@ -71,18 +73,23 @@ function Home() {
       description:
         "Using OpenWeatherMap API to create a weather app with React.",
       imageUrl: "../images/weather_app.png",
+      technologies: ['React', 'Node.js', 'MongoDB'],
     },
     {
       id: "4",
-      title: "Project 4",
-      description: "Description for project 4",
-      imageUrl: "https://via.placeholder.com/300x250",
+      title: "React Todo App",
+      description:
+        "A simple todo app built with React.",
+      imageUrl: "../images/todo_app.png",
+      technologies: ['React', 'Node.js', 'MongoDB'],
     },
     {
       id: "5",
-      title: "Project 5",
-      description: "Description for project 5",
-      imageUrl: "https://via.placeholder.com/300x250",
+      title: "React Calculator",
+      description:
+        "A simple calculator built with React.",
+      imageUrl: "../images/calculator.png",
+      technologies: ['React', 'Node.js', 'MongoDB'],
     },
   ];
 

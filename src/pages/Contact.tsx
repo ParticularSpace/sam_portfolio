@@ -45,7 +45,7 @@ const Contact: React.FC = () => {
   return (
     <>
      <Header showHeader={showHeader} />
-    <div style={{ padding: '2rem' }}>
+    <div style={{ padding: '6rem' }}>
       <Typography variant="h4" align="center">
         Contact Me
       </Typography>

@@ -5,13 +5,19 @@ import {
   ProjectsSection,
   ShowcaseProjectCard,
   CardBackground,
-} from "../styles/Home.styles";
+  ProjectInfo,
+  ProjectTitle,
+  ProjectDescription,
+  TechList,
+  TechItem
+} from "../styles/Home.styles"; // Assume these styled components are defined
 
 type Project = {
   id: string;
   title: string;
   description: string;
   imageUrl: string;
+  technologies: string[];
 };
 
 type Props = {
@@ -28,6 +34,15 @@ const ProjectGrid: React.FC<Props> = ({ projects }) => {
         onClick={() => console.log("Clicked on " + showcaseProject.title)}
       >
         <CardBackground imageUrl={showcaseProject.imageUrl} />
+        <ProjectInfo>
+          <ProjectTitle>{showcaseProject.title}</ProjectTitle>
+          <ProjectDescription>{showcaseProject.description}</ProjectDescription>
+          <TechList>
+            {showcaseProject.technologies.map((tech, index) => (
+              <TechItem key={index}>{tech}</TechItem>
+            ))}
+          </TechList>
+        </ProjectInfo>
       </ShowcaseProjectCard>
 
       <Grid container spacing={3}>
@@ -37,7 +52,15 @@ const ProjectGrid: React.FC<Props> = ({ projects }) => {
               onClick={() => console.log("Clicked on " + project.title)}
             >
               <CardBackground imageUrl={project.imageUrl} />
-      
+              <ProjectInfo>
+                <ProjectTitle>{project.title}</ProjectTitle>
+                <ProjectDescription>{project.description}</ProjectDescription>
+                <TechList>
+                  {project.technologies.map((tech, index) => (
+                    <TechItem key={index}>{tech}</TechItem>
+                  ))}
+                </TechList>
+              </ProjectInfo>
             </ProjectCard>
           </Grid>
         ))}
