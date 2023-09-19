@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Card, CardActionArea, CardContent, CardMedia, Typography, Button } from '@mui/material';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LanguageIcon from '@mui/icons-material/Language';
@@ -124,9 +124,11 @@ const Projects: React.FC = () => {
     // Add more projects as needed
   ];
 
+  const [showHeader, setShowHeader] = useState(true);
+
   return (
     <>
-    <Header />
+    <Header showHeader={showHeader} />
     <div>
       {projects.map((project, index) => (
         <ProjectCard

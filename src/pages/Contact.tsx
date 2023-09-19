@@ -40,10 +40,11 @@ const Contact: React.FC = () => {
       }
     }, 1000);
   };
+  const [showHeader, setShowHeader] = useState(true);
 
   return (
     <>
-    <Header />
+     <Header showHeader={showHeader} />
     <div style={{ padding: '2rem' }}>
       <Typography variant="h4" align="center">
         Contact Me

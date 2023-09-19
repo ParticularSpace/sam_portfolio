@@ -92,6 +92,7 @@ function Home() {
 
   const [showHeader, setShowHeader] = useState(false);
 
+ 
 
   // Three.js animation
   useEffect(() => {
@@ -196,8 +197,8 @@ function Home() {
 
   return (
     <>
-    
-     <Header />
+     <Header showHeader={showHeader} />
+
 
       <HomePageWrapper ref={containerRef}>
         <SectionTitle isDarkMode={isDarkMode}>
