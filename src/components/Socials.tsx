@@ -36,11 +36,12 @@ const Socials: React.FC = () => {
     padding: '0.3rem',
     margin: '0.4rem',
     borderRadius: '50%',
+      
 
   };
 
   return (
-    <div style={{ padding: '2rem', textAlign: 'center', backgroundColor: 'red' }}>
+    <div style={{ padding: '2rem', textAlign: 'center', backgroundColor: '#d74a49' }}>
       <Grid container justifyContent="space-between" alignItems="center">
         <Grid item>
           <IconButton style={iconStyle} href="https://www.linkedin.com/in/yourusername" target="_blank">

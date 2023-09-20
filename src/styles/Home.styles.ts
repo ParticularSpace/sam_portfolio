@@ -12,7 +12,7 @@ export const HomePageWrapper = styled.div<StyledProps>`
   justify-content: center; 
   overflow: hidden;
   z-index: -1; 
-  background-color: white;
+  background-color: #EAEAEA;
 
   
 `;
@@ -213,10 +213,10 @@ export const TechList = styled.ul`
 
 export const TechItem = styled.li`
   margin-right: 10px;
-  background-color: #eee;
+  background-color: #D74A49;
   padding: 5px 10px;
   border-radius: 3px;
-  font-size: 0.8rem;
+  font-size: 1rem;
 
   @media (max-width: 768px) {
     margin-bottom: 5px;
@@ -227,5 +227,5 @@ export const SocialWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: red;
+  background-color: #d74a49;
   `;

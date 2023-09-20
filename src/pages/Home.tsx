@@ -57,7 +57,7 @@ function Home() {
       title: "Ecommerce Website",
       description:
         "Full stack ecommerce website built with TypeScript, React, Node, Express, MongoDB, GQL, and Stripe.",
-      imageUrl: "../images/tech_store.png",
+      imageUrl: "./images/tech_store.png",
       technologies: ['React', 'Node.js', 'MongoDB'],
     },
     {
@@ -65,7 +65,7 @@ function Home() {
       title: "AI Chat App",
       description:
         "An AI with multiple functionalities such as: Chat, Translation, Stock analysis, and Speech to Text.",
-      imageUrl: "../images/Ai_chat.png",
+      imageUrl: "./images/Ai_chat.png",
       technologies: ['React', 'Node.js', 'MongoDB'],
     },
     {
@@ -73,7 +73,7 @@ function Home() {
       title: "React Weather App",
       description:
         "Using OpenWeatherMap API to create a weather app with React.",
-      imageUrl: "../images/weather_app.png",
+      imageUrl: "./images/weather_app.png",
       technologies: ['React', 'Node.js', 'MongoDB'],
     },
     {
@@ -81,7 +81,7 @@ function Home() {
       title: "React Todo App",
       description:
         "A simple todo app built with React.",
-      imageUrl: "../images/todo_app.png",
+      imageUrl: "./images/todo_app.png",
       technologies: ['React', 'Node.js', 'MongoDB'],
     },
     {
@@ -89,7 +89,7 @@ function Home() {
       title: "React Calculator",
       description:
         "A simple calculator built with React.",
-      imageUrl: "../images/calculator.png",
+      imageUrl: "./images/calculator.png",
       technologies: ['React', 'Node.js', 'MongoDB'],
     },
   ];
@@ -320,7 +320,7 @@ function Home() {
             <ProjectGrid projects={projects} />
           </ProjectGridWrapper>
         </div>
-
+ 
         <div>
           <SkillsWrapper>
             <Skills />

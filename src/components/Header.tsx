@@ -48,7 +48,7 @@ const Header: React.FC<HeaderProps> = ({ showHeader }) => {
     <StyledHeader show={showHeader}>
       <div>Sam Jones</div>
       <Navigation>
-        <Link to="/">Home</Link>
+        <Link to="sam_portfolio/">Home</Link>
         <Link to="/about">About Me</Link>
         <Link to="/projects">Projects</Link>
         <Link to="/resume">Resume</Link>

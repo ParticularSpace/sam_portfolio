@@ -10,7 +10,7 @@ import {
   ProjectDescription,
   TechList,
   TechItem
-} from "../styles/Home.styles"; // Assume these styled components are defined
+} from "../styles/Home.styles"; 
 
 type Project = {
   id: string;
