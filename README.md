@@ -1,4 +1,4 @@
-# tech_blog
+## tech_blog
 
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 
