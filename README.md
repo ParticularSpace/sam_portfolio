@@ -43,7 +43,7 @@ This is my personal portfolio showcasing my skills as a Full Stack Developer. It
 
 ![Login](public/images/sam_portfolio.png "Login")
 
-# Credits
+## Credits
 
 Sam Jones
 
